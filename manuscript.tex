@@ -95,13 +95,13 @@ Patterns of action potentials induced by sensory stimulation in vivo allow inves
 
 
 \section{Introduction}
-The neural coding problem asks how information is encoded through patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}. Responses following sensory stimulation can be analysed to explore principles of neural coding, with a classic dichotomy between temporal \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar} and rate codes \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high}. Temporal codes provide the possibility of a fast and efficient code. Whilst precise temporal patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of trial-to-trial variability remains unexplained. This high variability leads to common assumption of population firing rate codes, under the premise that variability cancels out across a population \cite{abbott1999effect, moreno2014information, stringer2019high}. Average firing rate codes are abstracted from neural mechanisms (see below), leaving a full understanding of neural coding and variability undetermined.
+The neural coding problem asks how information is encoded through patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}, with a dichotomy between temporal \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar} and rate codes \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high}. 
+% Temporal codes provide the possibility of a fast and efficient code. 
+Whilst precise temporal patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of trial-to-trial variability remains unexplained. Such variability leads to the common assumption of average firing rate codes, under the premise that variability cancels out across a population \cite{abbott1999effect, moreno2014information, stringer2019high}. Continuous firing rates, averaged over time, trial or population, have capacity beyond the single trial discrete spike count which they abstract, leaving a full understanding of neural coding and variability undetermined. It is important to better characterise neural codes in order to understand a rich variety of dynamic, structural, homeostatic and cognitive processes, as well as properties of action potential patterns directly involved in behaviour.
+% Characterising responses may also uncover response properties involved in behaviour. 
 
-It is important to better characterise neural codes in order to understand a rich variety of dynamical, structural, homeostatic and cognitive processes. Characterising responses may also uncover response properties involved in behaviour. Due to response variability from trial-to-trial, characterising the neural representation of a single stimulus is a matter of characterising the \textit{distribution} of possible neural responses.
-
-A multi-neuron stimulus response can be expressed as a point in multi-dimensional space, where each dimension represents a spike train metric. Responses from multiple presentations of a stimulus form a sample stimulus-response distribution in this space, which approximates an underlying stimulus-response distribution (Fig. 1a). If two stimuli have a behaviourally relevant difference, downstream neurons must be able to respond differently to samples from the response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a).
-
-Two phenomena complicate stimulus response distribution characterisation. Firstly, responses of some neurons depend on trial index. That is, response distributions are \textit{non-stationary} due to mechanisms of adaptation \cite{dragoi2002dynamics, ulanovsky2003processing, sharpee2006adaptive, ahissar2000transformation, kheradpezhouh2017response, ahissar2001temporal, khatri2009stimulus, martin2014tactile, barros2019response}. It follows that the region from which stimulus-responses are drawn from at a single point in time is smaller than the region from which samples are drawn from over multiple trials (Fig. 1b).  Adaptation occurs across species and modalities \cite{dragoi2002dynamics, ulanovsky2003processing, sharpee2006adaptive}, and in barrel cortex to repetitive whisker stimulation for both spike count \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response, khatri2009stimulus, martin2014tactile, barros2019response} and spike latency \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}. 
+Responses following sensory stimulation can be analysed to explore principles of neural coding. Due to response variability, characterising the neural representation of a single stimulus is a matter of characterising the \textit{distribution} of possible neural responses for the stimulus. A multi-neuron response can be expressed as a point in multi-dimensional space, where each dimension represents a spike train metric. Responses from multiple presentations of a stimulus form a sample stimulus-response distribution in this space (Fig. 1a). 
+% which approximates an underlying stimulus-response distribution. 
 
 \begin{figure}[t!]
 \centering
@@ -115,33 +115,117 @@ Two phenomena complicate stimulus response distribution characterisation. Firstl
 \label{fig:fig1}
 \end{figure}
 
+If two stimuli have a behaviourally relevant difference, downstream neurons must be able to respond differently to samples from the underlying response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a). Characterising the distribution from which a stimulus response is `drawn' from on a single trial is complicated by state dependence, neural adaptation and heterogeneity of sample response distribution structure.
 
-Secondly, firing correlations between spatially distanced neurons (see \cite{reid2012functional, feldmeyer2013barrel} for review) suggest the possible presence of a \textit{continuous} underlying state covarying neural responses. Response samples on a single trial (when the continuous state has a certain value) would then come from a state-dependent stimulus-response distribution (i.e. a smaller region of response distribution space; Fig. 1c).
-If receiving neurons could respond to a state-modulated signal in a state-dependent manner (contrary to common neural coding assumptions \cite{moreno2014information, stringer2019high}), state-dependent encoding would increase the capacity for discriminable stimulus encoding (Fig. 1c). The question is whether correlations between spatially distanced neurons are evidence of a shared state, which receiving neurons could also be modulated by [New Fig?].
-% Correlations in the barrel cortex up to a distance of $\sim1.5mm$ (vertically and horizontally) \cite{reyes2015long} suggest it is possible that afferently connected neurons could also be state-modulated and respond in a state-dependent manner. 
-Subthreshold membrane potentials are a candidate for such shared state, as they affect action potential initiation \cite{petersen2003interaction} and are correlated across areas \cite{poulet2008internal}.
-% State information could alternatively be explicitly encoded in state modulated population activity. 
+Firing correlations between spatially distanced neurons (see \cite{reid2012functional, feldmeyer2013barrel}) suggest the possible presence of a \textit{continuous} underlying state covarying neural responses. Response samples on a single trial, when the continuous state has a certain value, would then come from a state-conditioned stimulus-response distribution. This would be a smaller region of stimulus-response space than the region from which all samples come (Fig. 1c). Therefore, if downstream neurons could respond in a state-dependent manner (contrary to common neural coding assumptions \cite{moreno2014information, stringer2019high}), state-dependent encoding would increase the capacity for discriminable stimulus encoding.
 
-Estimating state-dependent stimulus-response distributions at a single snapshot in time is made difficult by heterogeneity of non-stationarity and response distribution structures (Supplementary Vid. 1), leading to use of averaging and coarse spike train metrics. As \textit{spike counts} show high trial-to-trial variability, single units cannot reliably encode many different stimuli. Instead, time, trial or population averaged scalar \textit{firing rates} \cite{gerstner2014neuronal} are calculated, with capacity beyond the original single trial discrete spike count, under the assumption that noise cancels out across a population \cite{abbott1999effect, moreno2014information, stringer2019high}.
+Characterisation of response distribution structure is also made complicated by neural adaptation, which occurs across species and modalities \cite{dragoi2002dynamics, ulanovsky2003processing, sharpee2006adaptive}, and in barrel cortex to repetitive whisker stimulation for spike count \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response, khatri2009stimulus, martin2014tactile, barros2019response} and spike latency \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}. That is, the response of some neurons are \textit{non-stationary} and change as a function of trial index. It is therefore important to control for neural adaptation when searching for correlative structure indicative of a possible underlying state.
 
-Trial-averaged firing rate population codes (often calculated over windows $>100ms$) allow decoding of object \cite{hong2016explicit} and face \cite{chang2017code} properties from macaque higher visual areas. 
-% Such long integration windows are discordant with behavioural speed \cite{thorpe1996speed} and the fast propagation of activity through cortical layers and areas \cite{perrett1982visual}. 
-Object category can be decoded population trial averaged multi-unit activity (MUA) over short 10ms time windows \cite{kar2019evidence}. Decoders do not generalise to later windows \cite{kar2019evidence}, excluding the notion of sustained firing rate representations. Higher encoding capacity is conferred by high spike counts of unsorted MUA \cite{hong2016explicit, kar2019evidence} or for persisting visual stimuli \cite{hong2016explicit, chang2017code, kar2019evidence}. Dimensionality reduction is commonly used to find dynamical population firing rate patterns \cite{ahrens2012brain, mante2013context, cunningham2014dimensionality}. Spike count and firing rates do not superimpose (Fig 1d\todo[color=red!40]{To do}), although competition schemes have been presented for simultaneously active overlapping representations \cite{bao2018representation}. 
-% Rate and timing codes may be aligned to internal oscillations \cite{fries2007gamma, havenith2011synchrony, vinck2010gamma, vinck2013attentional}.
-
-The topographic representation of each single whisker on the snout of a rodent in the somatosensory cortex, the so-called barrel cortex, represents an excellent model to study neuronal processing of defined sensory stimulation \cite{feldmeyer2013barrel}.
-The majority of barrel cortex neurons respond 0 or 1 times to single whisker deflections \cite{reyes2014laminar}. First spike patterns allow direct study of the relationship between known entities (e.g. stimulus location, intensity, frequency) and neuronal activity. A recent optogenetics study showed that early visual cortex patterns of single spikes are sufficient to enable visual discrimination \cite{resulaj2018first}, implicating single spike patterns as a candidate for atomic representation. 
+The topographic representation of each single whisker on the snout of a rodent in the somatosensory cortex, the so-called barrel cortex, represents an excellent model to study neuronal processing of defined sensory stimulation \cite{feldmeyer2013barrel}. The majority of barrel cortex neurons respond 0 or 1 times to single whisker deflections \cite{reyes2014laminar}. First spike patterns allow direct study of the relationship between known entities (e.g. stimulus location, intensity, frequency) and neuronal activity. A recent optogenetics study showed that early visual cortex patterns of single spikes are sufficient to enable visual discrimination \cite{resulaj2018first}, implicating single spike patterns as a candidate for atomic representation of information. 
 
 First spike times can have millisecond order precision relative to stimulus onset in sensory organs \cite{johansson2004first, uzzell2004precision, gollisch2008rapid}, thalamic areas \cite{reinagel2002precise, storchi2012comparison} and early sensory cortices \cite{reyes2014laminar}, with some evidence of continuum-like encoding relative to onset \cite{gollisch2008rapid, storchi2012comparison} and oscillations \cite{havenith2011synchrony}. Relative differences \cite{izhikevich2006polychronization} observed experimentally \cite{johansson2004first, gollisch2008rapid, reyes2014laminar} have been shown to encode information when trial averaged \cite{gollisch2008rapid} and do not require reference to an onset signal.
+Response distributions may form multiple clusters, implying stochasticity in the cluster from which representations come (Fig. 1d; \cite{reyes2014laminar}).
 % as neurons are sensitive to the spatial and temporal pattern of synaptic activations \cite{gasparini2006state, branco2010dendritic, branco2011synaptic}.
-Action potential instantaneity suggests that relative spike codes could superimpose (Fig. 1d). 
+Action potential instantaneity suggests that relative spike codes could superimpose (Fig. 1d). Response distributions may form multiple clusters, implying stochasticity in the cluster from which representations come (Fig. 1d; \cite{reyes2014laminar}).
 
-Assumptions about stimulus-response distribution structure constrain the potential encoding power of timing-based single spike patterns.
-Independent and normally distributed first spike-times would confer a low discriminability potential (as will be seen), dependent on single neuron variability (Fig. 1e). 
-% Over typical 10-40ms ranges of mean first spike times for short stimuli \cite{reyes2014laminar, resulaj2018first}, 
-% Observed first spike time standard deviations \cite{reyes2014laminar} would imply that very few unique stimuli/features could be encoded with high discriminability by a neuron pair. 
-Spike time differences between two neurons with independent and normal first spike times would have a standard deviation of \(\sigma_{diff} = \sqrt{\sigma_{a}^2 + \sigma_{b}^2}\).
-Spike times could covary with unitary gradient under the assumption that relative spike times have a factor-independent mean. Precise relative differences have been reported in the eye \cite{gollisch2008rapid} and barrel cortex \cite{reyes2014laminar}. Response distributions may form multiple clusters, implying stochasticity in the cluster from which representations come (Fig. 1d; \cite{reyes2014laminar}).
+Using a large data set of spike sorted recordings in anesthetized rat barrel cortex, pairwise first spike response distributions were first observed for repeated presentations of single stimuli. That is for repeated presentations of a single stimulus, the first spike times of two units were plotted against each other for trials on which they both spiked. The reader is strongly recommended to view these plots in Supplementary Vid. 1. Lines, colours and ellipses can be ignored at this stage. Simple observation of these plots shows that clusters of first spike pair responses appear correlated, suggesting that first spike pairs are correlated for pairs of neurons on a subset of trials of a stimulus. 
+
+Moreover, the correlation angle of some of the correlated clusters appears to be different from $45^{\circ}$ (i.e. has a gradient different from 1). Such correlations with `non-unitary gradient' may be indicative that correlations are due to an internal process (i.e. state) rather than variation in the precise timing of stimulus onset. However, this must be considered after checking and controlling for neural adaptive trends.
+
+A novel algorithm extracted the observed correlated clusters and found that they appeared above chance levels. To control for adaptive trends, the cluster spike times of each neuron in the pair were tested for stationarity. The cluster spike times of both units were stationary for X\% of correlated clusters. For the remaining clusters, which had at least one unit with non-stationary cluster spike times, time series analysis was applied to the cluster spike times of the unit to remove the non stationarity (i.e. neural adaptive trend).
+
+
+% That is, each axis corresponds to the first spike time of a different recorded unit. The scatter points therefore represent the first spike times of both units for the trials (of a single stimulus) on which both units spiked. 
+
+when the is spike times are correlate. Such first spike response distribution structure can be seen in the top left plots of Supplementary Vid. 1, The the reader is strongly recommended to view. 
+
+Simple observation .  It is clear
+
+
+It is important for neurophysiology to determine whether correlations between spatially distanced neurons are evidence of a shared continuous state, and whether this shared state also modulates downstream decoding neurons.
+Subthreshold membrane potentials are a candidate for such state, as they affect action potential initiation \cite{petersen2003interaction} and are correlated across areas \cite{poulet2008internal}.
+
+
+
+From observation of first spi
+
+This paper presents a novel algorithm, which characterises the occurrence and nature of correlations between the first spike times of pairs of neurons on subsets of trials. This offers (1) a precise understanding of stimulus responses and correlative variability [Vicente Refs], and (2) as a necessary step towards either rejecting state-dependent coding, or confirming its precise nature. 
+
+
+
+% It follows that the region of response-distribution space from which a stimulus-response is drawn from at a single point in time is smaller than the region from which samples are drawn from over all trials (Fig. 1b). 
+
+% The paper presents a novel technique for uncovering correlated first spike times for pairs of neurons in noisy response distributions. 
+
+
+
+
+% As \textit{spike counts} show high trial-to-trial variability, single units cannot reliably encode many different stimuli, leading to the use of firing rate codes (as discussed above and in the the Discussion).
+
+
+
+% Assumptions about stimulus-response distribution structure constrain the potential encoding power of timing-based single spike patterns.
+% Independent and normally distributed first spike-times would confer a low discriminability potential (as will be seen), dependent on single neuron variability (Fig. 1e). 
+% % Over typical 10-40ms ranges of mean first spike times for short stimuli \cite{reyes2014laminar, resulaj2018first}, 
+% % Observed first spike time standard deviations \cite{reyes2014laminar} would imply that very few unique stimuli/features could be encoded with high discriminability by a neuron pair. 
+% Spike time differences between two neurons with independent and normal first spike times would have a standard deviation of \(\sigma_{diff} = \sqrt{\sigma_{0}^2 + \sigma_{1}^2}\), where \(\sigma_{i}\) is the standard deviation of neuron $i$ ($i=0,1$).
+% Spike times could covary with unitary gradient under the assumption that relative spike times have a factor-independent mean. 
+% Precise relative differences have been reported in the eye \cite{gollisch2008rapid} and barrel cortex \cite{reyes2014laminar}. 
+
+The paper uncovers interesting correlative properties, which offer a novel description of neural representations and are suggestive (but not confirmatory) of an internal continuous state varying responses from trial-to-trial. 
+
+The characterisation offers a prediction of the encoding resolution of this state-dependent coding form, which would surpass previous unconditioned coding forms. Testing the decoding performance of the uncovered response properties would require explicit knowledge of the underlying state so is left for future studies.
+
+
+
+% Using a large data set of spike sorted recordings in anesthetized rat barrel cortex, the paper aims to address the following questions:
+
+\textit{1.} To repeated repeated trials of single stimuli (i.e. single whisker deflections at a particular velocity) do the first spike times of pairs of units form clear clusters? 
+
+\textit{2.}
+
+
+first spike responses of two units 
+
+
+
+
+Firstly, for repeated trials of single stimuli (i.e. single whisker deflections at a particular velocity), are the first spike times of pairs of units correlated? This analysis should take into account outliers and the possibility that responses come .
+
+In first-spike stimulus-response distributions for pairs of units, correlated clusters were found above chance-levels. Clustering was necessary for the detection of a large proportion of correlations.
+
+\textit{2.} For sets of correlated spike pairs, are the angles of correlation significantly different from $45^{\circ}$ (i.e. is the gradient of correlation different from 1)? This question is of interest for two reasons. Firstly such . This leads to the 
+
+\textit{3.} Does this offer a potential improvement in encoding capacity
+
+\textit{4.} For pairs of units in which
+    
+
+analyses first-spike stimulus-response distributions for pairs of barrel cortex units in response to repeated single whisker deflections. The
+
+
+we addressed the following questions / hypotheses. (1) …. (2) …. (3)…
+
+To our knowledge this is the first report demonstrating that 
+
+
+Cluster spike times of both units were stationary for X\%\todo[color=red!40]{Fill} of correlated clusters. X\% of these stationary correlated clusters had non-unitary (different from $45^{\circ}$) correlation angles, suggestive of an internal underlying factor co-varying first spike times and thus \textit{warping} the distribution of (decodable) relative spike time differences from trial-to-trial (Fig. 1d). Estimated factor-conditioned response distributions for these stationary clusters showed a high potential encoding capacity. 
+% Algorithms for detecting correlated clusters and estimating correlation angles were developed for this study and verified on surrogate control datasets.
+
+Time series analysis was applied to the non-stationary units of the remaining correlated clusters, to remove neural adaptive trends. A large proportion of detrended clusters were correlated with non-unitary gradient, suggestive of an underlying factor with an improved encoding potential. The results suggest that consideration of clustering, factor-dependence and non-stationarity, together, are necessary to explain a large proportion of neural variability, and could explain the failure to find a fast and efficient ubiquitous spike code that utilises the high sensitivity of neural architecture and plasticity. In this study, such consideration gave an estimate of the potential resolution of neural stimulus representation. 
+% Although the study analyses responses to single stimuli in isolation, it also considers the proposed and previously suggested neural codes with respect to feature-binding and continua encoding. 
+
+The characterised response distribution structure is referred to as \textbf{stationary and non stationary clustered time-warped spike timing}. This differs from previous `time-warp' studies, which aim to align spike trains over trials and do not consider discriminable encoding, clustering, non-stationarity and different warping functions for different neurons \cite{williams2020discovering}. One previous study has modelled time-warp-invariant integration \cite{gutig2009time}, although neurons needn't respond identically to warps of the same pattern. Rather, neurons should process relative spike patterns in a factor-dependent manner.
+
+
+
+
+
+
+
+
+
+
 % , which could be determined by some underlying factor or non-stationarity.
 
 
@@ -150,7 +234,7 @@ Spike times could covary with unitary gradient under the assumption that relativ
 
 
 
-% The spike time of either neuron would be correlated with the difference \todo[color=green!40]{Figure?}(Fig. X) but due to independence there would be no process underlying this correlation, and thus no means by which downstream neurons could interpret the difference in a state-dependent manner (other than an event signal). Moreover, the discriminability of one neuron's spike time and the difference would be the same as that of the two neuron's spike times \todo[color=green!40]{Same figure}(Fig. X).  
+
 
 
 % Projection of the stimulus-response distribution to a first spike time vs difference space would not decrease the area of the distribution, and thus would not improve discriminability. 
@@ -168,16 +252,7 @@ Spike times could covary with unitary gradient under the assumption that relativ
 
 \section{Results}
 
-\subsection*{Overview}
-% 
-This paper analyses first-spike stimulus-response distributions for pairs of barrel cortex units in response to repeated single whisker deflections. In first-spike stimulus-response distributions for pairs of units, correlated clusters were found above chance-levels. Clustering was necessary for the detection of a large proportion of correlations.
-Cluster spike times of both units were stationary for X\%\todo[color=red!40]{Fill} of correlated clusters. X\% of these stationary correlated clusters had non-unitary (different from $45^{\circ}$) correlation angles, suggestive of an internal underlying factor co-varying first spike times and thus \textit{warping} the distribution of (decodable) relative spike time differences from trial-to-trial (Fig. 1d). Estimated factor-conditioned response distributions for these stationary clusters showed a high potential encoding capacity. 
-% Algorithms for detecting correlated clusters and estimating correlation angles were developed for this study and verified on surrogate control datasets.
 
-Time series analysis was applied to the non-stationary units of the remaining correlated clusters, to remove neural adaptive trends. A large proportion of detrended clusters were correlated with non-unitary gradient, suggestive of an underlying factor with an improved encoding potential. The results suggest that consideration of clustering, factor-dependence and non-stationarity, together, are necessary to explain a large proportion of neural variability, and could explain the failure to find a fast and efficient ubiquitous spike code that utilises the high sensitivity of neural architecture and plasticity. In this study, such consideration gave an estimate of the potential resolution of neural stimulus representation. 
-% Although the study analyses responses to single stimuli in isolation, it also considers the proposed and previously suggested neural codes with respect to feature-binding and continua encoding. 
-
-The characterised response distribution structure is referred to as \textbf{stationary and non stationary clustered time-warped spike timing}. This differs from previous `time-warp' studies, which aim to align spike trains over trials and do not consider discriminable encoding, clustering, non-stationarity and different warping functions for different neurons \cite{williams2020discovering}. One previous study has modelled time-warp-invariant integration \cite{gutig2009time}, although neurons needn't respond identically to warps of the same pattern. Rather, neurons should process relative spike patterns in a factor-dependent manner.
 
 \subsection*{Neurophysiology}
 
@@ -239,6 +314,8 @@ X\%\todo[color=red!40]{Fill} of angled clusters contained spikes from all conjun
 \subsection*{Correlation analysis}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary1}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary2}
+
+% The spike time of either neuron would be correlated with the difference \todo[color=green!40]{Figure?}(Fig. X) but due to independence there would be no process underlying this correlation, and thus no means by which downstream neurons could interpret the difference in a state-dependent manner (other than an event signal). Moreover, the discriminability of one neuron's spike time and the difference would be the same as that of the two neuron's spike times \todo[color=green!40]{Same figure}(Fig. X).  
 
 
 \subsection*{Cluster angle}
@@ -406,6 +483,13 @@ Fig. 8a shows the spatial distribution of unit pairs which exhibited criteria fu
 
 \subsection*{The feature-binding problem (FBP) and space-time continua}
 [TO DO]
+
+Trial-averaged firing rate population codes (often calculated over windows $>100ms$) allow decoding of object \cite{hong2016explicit} and face \cite{chang2017code} properties from macaque higher visual areas. 
+% Such long integration windows are discordant with behavioural speed \cite{thorpe1996speed} and the fast propagation of activity through cortical layers and areas \cite{perrett1982visual}. 
+Object category can be decoded population trial averaged multi-unit activity (MUA) over short 10ms time windows \cite{kar2019evidence}. Decoders do not generalise to later windows \cite{kar2019evidence}, excluding the notion of sustained firing rate representations. Higher encoding capacity is conferred by high spike counts of unsorted MUA \cite{hong2016explicit, kar2019evidence} or for persisting visual stimuli \cite{hong2016explicit, chang2017code, kar2019evidence}. Dimensionality reduction is commonly used to find informative dynamical population firing rate patterns \cite{ahrens2012brain, mante2013context, cunningham2014dimensionality}.
+Spike count and firing rates do not superimpose (Fig 1d\todo[color=red!40]{To do}), although competition schemes have been presented for simultaneously active overlapping representations \cite{bao2018representation}. 
+% Rate and timing codes may be aligned to internal oscillations \cite{fries2007gamma, havenith2011synchrony, vinck2010gamma, vinck2013attentional}.
+
 % The \textit{presence} of a sensory feature (i.e. pattern) may signal the \textit{opportunity} to undertake particular \textit{types} of actions, whilst feature \textit{properties} (i.e. transformation \textit{motor-specifics} of performing such actions. Over stages of sensory hierarchies, cell assemblies (i.e. groups of neurons) respond to increasingly complex features \cite{hubel1962receptive, hinkle2002three, yamane2008neural} with increased selectivity over larger ranges of transformations \cite{rust2010selectivity}. A \textit{`feature-presence cell assembly'} defines a group of neurons which responds selectively to a feature over multiple transformations. The feature-binding problem (FBP) originally asked how, in the presence of multiple high-level features, feature-properties were associated with the correct feature-presence cell assemblies \cite{Rosenblatt_Principles_1961, Treisman_Illusory_1982} (Fig. 1e). Historically proposed solutions failed to solve the FBP (see Discussion).
 
 % Stimuli are likely to correspond with response distributions that exist on a continua in response distribution space. That is, small changes in stimulus space are likely to correspond with small changes in response distribution space. The relevance of such `space-time continua' to behaviour, experience and generalisation are later discussed. It follows from above that space-time continua would be non-stationary and factor-dependent. Consideration of candidate neural codes should additionally account for (i) how such continua emerge through learning, (ii) how spatially overlapping stimulus representations could superimpose (\cite{Rosenblatt_Principles_1961, von1999and}; Fig. 1X), and (iii) how representations can be correctly parsed with minimal information loss.
