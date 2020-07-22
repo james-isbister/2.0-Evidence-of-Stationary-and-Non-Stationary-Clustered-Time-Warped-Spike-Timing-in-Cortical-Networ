@@ -1,0 +1,65 @@
+
+%<*ClusterCorrelationSummary1>
+Flat clusters were linearly correlated above chance levels (Fisher's method: $\chi^{2}(7844, N = 3922) = 15380.2, $ $p < .001$; Fig. 3e). Of the final angled clusters, 97.6\% (160/164) were positively correlated (Fig. 3f), suggesting the presence of a factor affecting response latency monotonically across the population. For the corresponding flat cluster of the criteria fulfilling angled clusters, spike pair differences were correlated with the spike time of the first unit in the pair (Fisher's method: $\chi^{2}(328, N = 164) = 8366.9, $ $p < .001$; Fig. 3g), showing that correlations were not explained by a model of the form $s_1 = s_0 + d + independent\_noise$ where $d$ is a fixed difference.
+%</ClusterCorrelationSummary1>
+
+%<*ClusterCorrelationSummary2>
+For the final angled clusters, 81.7\% (134/164) of the corresponding flat clusters had linear regression p-values less than the p-values of linear regression applied to the unclustered first spike pairs (Fig. 3h). This implies that without clustering, linear regression would miss a large proportion of first spike correlations.
+%</ClusterCorrelationSummary2>
+
+%<*AngledClustersUniquePairsSummary>
+Within this time window, the algorithm extracted a total of 164 angled clusters from 164 unique response distributions, such that there were no repeated or similar clusters.
+%</AngledClustersUniquePairsSummary>
+
+%<*OriginalAnglesSummary>
+For the positively correlated angled clusters, Fig. 4a shows the distribution of the mean $\theta_{45}$ angles with 95\% confidence intervals. 66.5\% (109/164) of angles were significantly greater than $0^{\circ}$ (p-value < 0.025) and less than $45^{\circ}$ (p-value < 0.025). 
+%</OriginalAnglesSummary>
+
+%<*OriginalTestsPassedSummary>
+Of the 164 angled clusters, 44 were determined to be stationary and sufficiently correlated by fulfilling the criteria described in the Methods \ref{methods:angle_and_factor_analysis_criteria}, such that an underlying factor could underlie the covariation.
+%</OriginalTestsPassedSummary>
+
+%<*OriginalTestsPassedAngleSummary>
+Of the 44 criteria fulfilling angled clusters, 26 had estimated angles significantly different from both $0^{\circ}$ (p-value < 0.025; Fig. 4f) and $45^{\circ}$ (p-value < 0.025; Fig. 4f). Of the 44 criteria fulfilling angled clusters, normality was not rejected for 18 clusters (Henze-Zirkler p > 0.05), of which 11 had an estimated angle significantly different from both $0^{\circ}$ (p-value < 0.025) and $45^{\circ}$ (p-value < 0.025).
+%</OriginalTestsPassedAngleSummary>
+
+%<*OriginalTestsPassedFactorAnalysisSummary>
+Factor analysis could be applied to the 44 criteria fulfilling angled clusters, to give an estimate of the factor-conditioned cluster response distributions for the stationary angled clusters.
+%</OriginalTestsPassedFactorAnalysisSummary>
+
+%<*ClusterSingleUnitKPSSStationaritySummary>
+For the 164 angled clusters, 118 of the corresponding 328 ($=2*164$) single unit cluster first spike sequences were determined as KPSS non-stationary (p < 0.05; Fig. 4d).
+%</ClusterSingleUnitKPSSStationaritySummary>
+
+%<*ClusterSingleUnitTrialIndexLRSummary>
+The cluster spike times of either 0, 1 or 2 of the units in a cluster pair were correlated with trial index (Fisher's method: $\chi^{2}(656, N = 328) = 2551.6, $ $p < .001$; Fig. 4b,c).
+%</ClusterSingleUnitTrialIndexLRSummary>
+
+%<*SelectivelyDifferencedSummary>
+In total, 87 clusters had differencing applied to atleast one unit. 87 of these clusters fulfilled the criteria, giving a total of 87 criteria fulfilling angled clusters (including the undifferenced stationary clusters). 
+%</SelectivelyDifferencedSummary>
+
+%<*SelectivelyDifferencedCorrelatedSummary>
+In total, 59 of the 87 criteria fulfilling clusters were linearly correlated following differencing (p-value < 0.05) (Fig. 6h). 26 of the correlated criteria fulfilling clusters had estimated angles significantly greater than $0^{\circ}$ (p-value < 0.025) and less than $45^{\circ}$ (p-value < 0.025). Of these, normality was not rejected for 15 clusters (Henze-Zirkler p > 0.05). Fig. 6j shows that the distribution of estimated angles for the successfully differenced clusters. Fig. 8? shows the difference between original and differenced estimated clusters?
+%</SelectivelyDifferencedCorrelatedSummary>
+
+%<*SelectivelyDifferencedTestsPassedNewSummary>
+In total, 87 clusters had differencing applied to atleast one unit. 41 of these were correlated and fulfilled the criteria. 26 of these clusters had estimated angles significantly greater than $0^{\circ}$ (p-value < 0.025; Fig 6b) and less than $45^{\circ}$ (p-value < 0.025; Fig 6b), of which 14 normality was not rejected for (Henze-Zirkler p < 0.05). These angles are similar to the original angles before differencing (Fig. 6c), showing that the differencing operation does not largely alter cluster angle. Fig. 6d shows the amount of variance explained by the pairwise correlation after trend removal. 
+%</SelectivelyDifferencedTestsPassedNewSummary>
+
+%<*SelectivelyDifferencedTestsPassedEigenvalueSummary>
+The factor analysis model from above can be applied to the 41 correlated criteria fulfilling differenced clusters, as the factor correlation matrices of each cluster only had one eigenvalue greater than 1. 
+%</SelectivelyDifferencedTestsPassedEigenvalueSummary>
+
+%<*SelectivelyDifferencedBoxJenkinsDifferencedSummary>
+85 of the 87 differenced clusters had an ARMA model applied to atleast one unit. Almost all ARMA models fit for differenced clusters were of the MA type (Fig 7a), as expected for the negative autocorrelations introduced by differencing. 
+%</SelectivelyDifferencedBoxJenkinsDifferencedSummary>
+
+%<*SelectivelyDifferencedBoxJenkinsCorrelatedSummary>
+After the described application of the Box-Jenkins method, there were 44 criteria fulfilling clusters. Normality was not rejected for 18 of these clusters (Henze-Zirkler p > 0.05). 26 of the correlated criteria fulfilling clusters had estimated angles significantly greater than $0^{\circ}$ (p-value < 0.025; Fig. 7b) and less than $45^{\circ}$ (p-value < 0.025; Fig. 7b), for which 9 normality was not rejected for (Henze-Zeckler p-value > 0.05). Fig. 7c shows the difference between original and ARIMA estimated cluster angles. 
+%</SelectivelyDifferencedBoxJenkinsCorrelatedSummary>
+
+%<*SelectivelyDifferencedBoxJenkinsTestsPassedEigenvalueSummary>
+The factor analysis model from above can be applied to the 44 correlated criteria fulfilling clusters, as the factor correlation matrices of each cluster only had one eigenvalue greater than 1. 
+%</SelectivelyDifferencedBoxJenkinsTestsPassedEigenvalueSummary>
+
