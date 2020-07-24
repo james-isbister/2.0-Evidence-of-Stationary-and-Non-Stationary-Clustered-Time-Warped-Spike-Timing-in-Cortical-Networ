@@ -91,7 +91,7 @@ Patterns of action potentials induced by sensory stimulation in vivo allow inves
 \end{abstract}
 
 
-\keywords{Neural coding, precise spike timing, time-warp, feature-binding, barrel cortex, noise correlations, neural adaptation, in vivo recording}
+\keywords{Neural coding, precise spike timing, time-warp, state-dependent processing, barrel cortex, noise correlations, neural adaptation, in vivo recording, feature-binding}
 
 
 \section{Introduction}
@@ -115,7 +115,14 @@ Responses following sensory stimulation can be analysed to explore principles of
 \label{fig:fig1}
 \end{figure}
 
-If two stimuli have a behaviourally relevant difference, downstream neurons must be able to respond differently to samples from the response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a). Characterising the distribution from which a stimulus response is `drawn' from on a single trial is complicated by state dependence, neural adaptation and heterogeneity of sample response distribution structure.
+Information theoretic approaches aim to understand 
+If two stimuli have a behaviourally relevant difference, downstream neurons must be able to respond differently to samples from the response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a). Characterising the distribution from which a stimulus response is `drawn' from on a single trial is complicated by correlative structure, neural adaptation and heterogeneity of sample response distribution structure.
+
+Correlative structure between the responses of different neurons in single stimulus response distributions indicates the presence of noise shared between the responses of neurons. These are referred to as `noise correlations' and are the focus of this manuscript, rather than `signal correlations' which refer to tuning similarity between neurons over multiple stimuli. 
+
+Information theoretic approaches classically consider neural encoding with respect to fixed-state encoding and decoding. These approaches often do not consider that correlative structure (i.e. covariance of multi-neuron responses over trials of a single stimulus) could be caused by a \textit{continuous} underlying state, which covaries neural responses from trial-to-trial.
+
+
 
 Firstly, correlative structure between the responses of spatially distanced neurons (see \cite{reid2012functional, feldmeyer2013barrel}) in a single stimulus response distribution, opens the possibility of a \textit{continuous} underlying state, which covaries neural responses from trial-to-trial. Response samples on a single trial, when the continuous state has a certain value, would then come from a state-conditioned stimulus-response distribution. This would be a smaller region of stimulus-response space than the region from which all samples come (Fig. 1c). Therefore, if downstream neurons could respond in a state-dependent manner (contrary to common neural coding assumptions \cite{moreno2014information, stringer2019high}), state-dependent encoding would increase the capacity for discriminable stimulus encoding.
 
@@ -216,36 +223,49 @@ The dataset used for this paper is reused from an earlier study, of which analys
 \end{figure}
 
 
-\subsection*{Low spike counts}
+\subsection*{Single spike patterns}
+
+\todo{Add PSTH of single stimulus. i.e. 1Hz over 10 and all stimuli maybe}
+\todo{Do conclusion}
 
 This section justifies the analysis of first spike patterns as a cortical representation of single whisker deflections. Firstly, this section demonstrates that the majority of neurons respond to single whisker deflections with either 0 or 1 spike (Fig. 2a). Spike count encoding therefore has a low capacity for discriminable stimulus encoding, made worse by high spike count variance (Fig. 2b). The responses of each unit-type and layer group (averaged over stimuli) demonstrate a clear initial response, followed by a tailing-off (Fig. 2c). The paper aims to better characterise this initial (largely single spike) response.
 
 
-\subsection*{First spike non-stationarity}
+\subsection*{Spike latency adaptation}
 
-This section demonstrates that the responses of some neurons exhibit depressive latency adaption, which should be controlled for when testing for correlative structure caused by a non-adaptive state.
+\todo{Look at adaption by neuron type and layer}
+\todo{Select final adaption examples, with layers and stats.}
+\todo{Do adaption conclusion}
+\todo{Make adaption stats overview paragraph simpler, with nice single bar chart}
 
-Fig 2d. shows the first spike times of 5 single units in response to repeated presentations of single stimuli. The unit of Fig. 2d(i) demonstrates depressive latency adaptation. The units of Fig. 2d(ii, iii) demonstrate no obvious latency adaptation. The units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. For repeated presentations single stimuli, single unit first spike times are linearly correlated with trial number above chance 
-(Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p<.001$; Fig. 2e).
+This section demonstrates that the responses of some neurons exhibit depressive latency adaption, which should be controlled for when testing for correlative structure caused by a non-adaptive state. Figure 2d shows the first spike times of 5 single units in response to repeated stimulations. The L23E unit of Fig. 2d(i) demonstrates an irregular response pattern with adaptation. Whereas the L4I unit of Fig. 2d(ii) shows a short and consistent response, the L… unit of Fig. 2d(iii) reveals a sparse and variable pattern and no obvious adaptation. The L4I and L4I units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. 
+
+Single unit first spike times are linearly correlated with trial number above chance (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p<.001$; Fig. 2e).
 % (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p = 1.027\textrm{e-132}$; Fig. 2e). 
-Of the 63 first spike response distributions that were significantly correlated with trial index (p<.005), $90\%$ (57/63) were positively correlated (Fig. 2f), supporting depressive latency adaptation \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}. The KPSS null hypothesis of stationarity was rejected for p-value < 0.05 for 19\% (168/893) single stimulus single unit first spike response distributions (Fig. 2g). 
-
-Autocorrelations of single-unit single-stimulus first spike times were above chance for lags 1-5 (Supplementary Fig. 2), supportive of general adaptive trends. Only the lag-2 partial autocorrelation was slightly above chance (Supplementary Fig. 2), suggestive of some additional structure in the trial-to-trial sequence of first spike times for some units.
+Of the 63 first spike response distributions that were significantly correlated with trial index (p<.005), $90\%$ (57/63) were positively correlated (Fig. 2f), supporting depressive latency adaptation \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}. The KPSS null hypothesis of stationarity was rejected for p-value < 0.05 for 19\% (168/893) first spike response distributions (Fig. 2g). Autocorrelations of single-unit single-stimulus first spike times were above chance for lags 1-5 (Supplementary Fig. 2), furthering support of general adaptive trends. Only the lag-2 partial autocorrelation was slightly above chance (Supplementary Fig. 2), suggestive of additional structure in the trial-to-trial sequence of first spike times for a small number of units, beyond adaptive trends.
 % after accounting for general adaptive trends.
 
 
-\subsection*{First spike pair response distribution example}
+\subsection*{Example first spike pair response distribution}
 
 \begin{figure}[t!]
 \centering
 \includegraphics[width=\textwidth]{Figure3.pdf}
-\caption{Clustered time-warp example and correlated clusters. (a) Sampled first spike response distribution for two units (L5A Inh, L4 Inh) over a 50ms window following cortical onset (1 outlier out of view). Point colours illustrate DBSCAN cluster (EPS = 1.35). Black points are outliers. Dashed ellipses illustrate $3\sigma$ bounding ellipse calculated for each DBSCAN cluster. Green flat ellipse illustrates $4\sigma$ boundary of green flat cluster. Green angled ellipse illustrates $4\sigma$ boundary of green angled cluster. Orange ellipse illustrates $4\sigma$ ellipse of points under the assumption of independence and normality. (b) Distribution of spike pair differences for response distribution of (a). (c) Histogram of flat cluster end points (mean + $4\sigma$) for all criteria fulfilling angled clusters. (d) The blue histogram represents the ratio of cluster spike pairs to the number of trials of the stimulus, for each angled cluster. The green histogram represents the ratio of cluster spike pairs to the number of trials that both neurons spike to the stimulus, for each angled cluster. (e) Linear regression p-values for all flat clusters. (f) R (green) and $R^2$ (blue) values of all angled clusters. (g) Linear regression p-values of first unit cluster spike times and spike difference. (h) Histogram of flat cluster linear regression p-values minus conjunctive linear regression p-values, for all criteria fulfilling angled clusters.}
+\caption{Clustered time-warp example and correlated clusters. (a) Sampled first spike response distribution for two units (L5AI, L4I) over a 50ms window following cortical onset (1 outlier out of view). Point colours illustrate DBSCAN cluster (EPS = 1.35). Black points are outliers. Dashed ellipses illustrate $3\sigma$ bounding ellipse calculated for each DBSCAN cluster. Green flat ellipse illustrates $4\sigma$ boundary of green flat cluster. Green angled ellipse illustrates $4\sigma$ boundary of green angled cluster. Orange ellipse illustrates $4\sigma$ ellipse of points under the assumption of independence and normality. (b) Distribution of spike pair differences for response distribution of (a). (c) Histogram of flat cluster end points (mean + $4\sigma$) for all criteria fulfilling angled clusters. (d) The blue histogram represents the ratio of cluster spike pairs to the number of trials of the stimulus, for each angled cluster. The green histogram represents the ratio of cluster spike pairs to the number of trials that both neurons spike to the stimulus, for each angled cluster. (e) Linear regression p-values for all flat clusters. (f) R (green) and $R^2$ (blue) values of all angled clusters. (g) Linear regression p-values of first unit cluster spike times and spike difference. (h) Histogram of flat cluster linear regression p-values minus conjunctive linear regression p-values, for all criteria fulfilling angled clusters.}
 \label{fig:fig3}
 \end{figure}
 
-Fig. 3a shows the distribution of first spike pairs in response to a 4Hz stimulus for two units (L5A Inh, L4 Inh) over a 50ms window following cortical onset. Only responses on `conjunctive trials' (trials on which both units spiked) are shown. The orange Gaussian is centered at the mean and has widths equal to 4 times the first spike time standard deviations of each unit (on conjunctive trial), illustrating the region from which 99.9\% of first spike pairs would be predicted to fall under the assumption of independence and normality. The assumptions fail to capture the distribution structure of many spike pair distributions (Supplementary Vid. 1) and would allow very few stimuli to be encoded with high-discriminability. The spike time differences have a standard deviation of X (Fig. 3b), which is also poor for discriminable encoding. 
+\todo{Do introduction (objectives) and summary}
+\todo{Clear up final paragraph}
+\todo{Differences standard deviation}
 
-First spike pairs in Fig. 3a appear to form two clusters (blue and green dots). The green cluster appears correlated with non-unitary gradient, suggestive of an underlying factor, which covaries first spike times, such that distributions of differences would be smaller when factor-conditioned, offering a higher power for discriminable encoding. 
+This section presents an example first spike pair response distribution for the purposes of understanding. Fig. 3a shows the distribution of first spike pairs in response to a 4Hz stimulation of a single whisker for two units in L5AI and L4I of the corresponding principle column (over a 50ms window following cortical activation onset). Only responses on `conjunctive trials' (trials in which both units spiked for the single stimulus) are shown. 
+
+The orange Gaussian is centered at the mean of the first spike pairs and has widths equal to 4 times the first spike time standard deviations of each unit (on conjunctive trial), illustrating the region from which 99.9\% of first spike pairs would be predicted to fall under the assumption of independence and normality (i.e. spike time jitter). This assumption fails to capture the distribution structure of this and many other spike pair distributions (Supplementary Vid. 1) and very few different stimuli to be encoded with high-discriminability. 
+
+The spike time differences have a standard deviation of X (Fig. 3b), which is also poor for discriminable encoding. 
+
+First spike pairs in Fig. 3a appear to be drawn from one of two clusters (blue and green dots) in response to the same stimulus. The green cluster appears correlated with non-unitary gradient, suggestive of an underlying factor, which covaries first spike times, such that distributions of differences would be smaller when factor-conditioned, offering a higher power for discriminable encoding. 
 
 
 \subsection*{Clustering algorithm summary}
@@ -302,7 +322,7 @@ The cluster spike times of cluster unit pairs exhibit lagged cross-correlations 
 \subsection*{Analysis of stationary clusters}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedAngleSummary}
-Fig. 4g shows the amount of variance explained by the stationary angled cluster correlations. Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7).
+Fig. 4g shows the histogram of variance explained by the stationary angled cluster correlations. Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7).
 
 
 \begin{figure}[t!]
@@ -315,8 +335,8 @@ Fig. 4g shows the amount of variance explained by the stationary angled cluster 
 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters. The factor correlation matrix of all criteria fulfilling angled cluster had only one eigenvalue greater than 1, suggesting that a single factor underlied the pairwise cluster covariations. The following single factor model was therefore fit to the elements of each (zero-centered) cluster: $s_i = \lambda_i \eta + \sigma_i$ for $i \in [0, 1]$ 
 % and $s_1 = \lambda_1 \eta + \sigma_1$, 
-where $\eta$ is some underlying factor, 
-% $\lambda_i$ is the gradient at which the factor affects the spike time of unit $i$, 
+where $\eta$ represents the value of the underlying state, 
+$\lambda_i$ is the gradient at which the spike time of unit $i$ varies w.r.t. the state $\eta$, 
 and $\sigma_i$ is the predicted standard deviation of $s_i$ given $\eta$. Bootstrapping (1000 iterations) was used to calculate means of these values, which were used in subsequent analyses.
 
 The purple line in Fig. 5a shows the values predicted by the model for $\eta = [-4, 4]$ and $\sigma_i = 0$, re-centered around the cluster mean. $\theta_{45}$ angles of the factor lines were estimated using the same method used for PCA component angle estimation (Methods \ref{methods:cluster_angle_confidence_interval}) and were similar to the corresponding PCA $\theta_{45}$ angles (Fig. 5b). The purple ellipse in Fig. 5a has widths equal to $4\sigma_0, 4\sigma_1$ where  $\sigma_0, \sigma_1$ are the standard deviations of the predicted factor ($\eta$) dependent response distribution. This allows visual comparison of the estimated factor-conditioned response distribution to the larger $4\sigma$ areas under the assumptions of normality and independence (orange), normal and independent clusters (green flat cluster) and normal correlated clusters (green angled cluster). 
