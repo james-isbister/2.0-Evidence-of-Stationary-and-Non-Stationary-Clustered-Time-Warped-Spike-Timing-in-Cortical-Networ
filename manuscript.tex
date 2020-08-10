@@ -314,12 +314,12 @@ The algorithm was verified by confirming that the algorithm extracted correlated
 \subsection*{Stage 2 Clusters - Angle analysis}
 \label{results:cluster_angle}
 
-To estimate the correlation angle of the correlated Stage 1 clusters, a corresponding `Stage 2' \textit{angled} $4\sigma$ ellipse was estimated for each correlated Stage 1 cluster (see Methods \ref{methods:angled_clusters}; e.g. angled solid green ellipse in Fig 3a). Stage 2 clusters which were non-isolated, repeats or contained smaller clusters were discarded. 
+To better estimate the distribution underlying each correlated Stage 1 cluster and to estimate the cluster correlation angle, an \textit{angled} `Stage 2' ellipse was estimated for each Stage 1 cluster using a multi-stage bootstrap algorithm (see Methods \ref{methods:angled_clusters}; e.g. angled solid green ellipse in Fig 3a).
+Stage 2 clusters which were non-isolated, repeats or contained smaller clusters were discarded. 
 \ExecuteMetaData[100msAnalysisOutputLatex.tex]{ClusterTimeSpanSummary}
 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{AngledClustersUniquePairsSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary2}
-
 
 
 \begin{figure}[t!]
@@ -331,42 +331,55 @@ To estimate the correlation angle of the correlated Stage 1 clusters, a correspo
 
 % X\%\todo[color=red!40]{Fill} of angled clusters contained spikes from all conjunctive trials (Fig. 3d).
 
-To test whether the cluster correlation angles were different from $45^{\circ}$, an algorithm was developed to estimate the angle $\theta$ of correlation for each Stage 2 cluster (see Methods \ref{methods:cluster_angle_confidence_interval}). A final $\theta_{45} = min(\theta, 90-\theta)$ angle was used for each Stage 2 cluster, as only the ordering of the units determined whether $\theta$ was above or below $45^{\circ}$.
+To test whether the cluster correlation angles were different from $45^{\circ}$, the angle $\theta$ of correlation for each Stage 2 cluster was calculated (see Methods \ref{methods:cluster_angle_confidence_interval}). A final $\theta_{45} = min(\theta, 90-\theta)$ angle was used for each Stage 2 cluster, as only the ordering of the units determined whether $\theta$ was above or below $45^{\circ}$.
 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary1}
 Fig. 4a shows the estimated $\theta_{45}$ angles (with 95\% confidence intervals) for all positively correlated Stage 2 clusters.
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalAnglesSummary}
-This initial finding that shows that the distribution of relative first spike differences between two units depends on some some underlying processes.
-Following sections will aim to determine when neural adaptation and/or non-adaptative underlying states underlie such positive non-unitary correlations. 
-To validate that such differences from $45^{\circ}$ were not artifacts of the algorithm, the algorithm was tested on a surrogate control dataset (see Methods \ref{methods:angle_surrogate_control_dataset}; Supplementary Fig. 6). 
+This initial finding shows that for some pairs of units the distribution of relative first spike differences between two units depends on some underlying processes.
+Following sections aim to determine when neural adaptation and/or non-adaptative underlying states underlie such positive non-unitary correlations. 
+To validate that such differences from $45^{\circ}$ were not artifacts of the Stage 2 cluster estimation algorithm, the algorithm was tested on a surrogate control dataset (see Methods \ref{methods:angle_surrogate_control_dataset}; Supplementary Fig. 6). 
 
 The non-unitary correlations cannot be explained by a model in which the second spiking neuron spikes a fixed time difference after the first. 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary0p1}
-This strengthens the case that the spike timing correlations between pairs of neurons are co-modulated by some underlying processes. 
+This strengthens the case that the spike timing correlations between pairs of neurons are co-modulated by some underlying process. 
 
 
 
 
-\subsection*{Cluster stationarity and normality}
+\subsection*{Cluster stationarity}
 
+This section tests both whether cluster spike times for individual units are affected by neural adaptation and also the degree to which neural adaptation explains cluster correlations.
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterSingleUnitTrialIndexLRSummary}
-Only a small amount of variance was explained by the linear models fit to predict the joint spike pair times from trial number (Fig. 4d), suggesting that neural adaptation may not alone explain the covarying cluster spike times. 
-% More complex first spike time relationships with trial index were also observed. 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterSingleUnitKPSSStationaritySummary}
+Only a small amount of variance was explained by the linear models fit to predict the joint spike pair times from trial number (Fig. 4d). 
 
-Beside general adaptive trends, some units exhibited observable short trial-by-trial sequences (3-4 trials) of highly correlated first spike times, before losing such correlations. Lagged autocorrelations were significantly above chance for a high number of lags (Supplementary Fig. 4) supportive of general adaptive trends. Only the lag-2 partial autocorrelation was significantly above chance (p-value < 0.005; Supplementary Fig. 4), representative of the additional trial-by-trial structure observed for very few single units.
+% supporting that neural adaptation does not alone explain cluster correlations. 
+% More complex first spike time relationships with trial index were also observed. 
+Lag-1 autocorrelations of single unit cluster spike times were above chance [STAT], as expected by the spike times of some units being affected by adaptation.
+Beside general adaptive trends, some single units exhibited short trial-by-trial sequences (3-4 trials) of autocorrelated first spike times, before losing such autocorrelations. 
+% Lagged autocorrelations were significantly above chance for a high number of lags (Supplementary Fig. 4) supportive of general adaptive trends. 
+ Only the lag-2 partial autocorrelation (lags 2-5 tested) was significantly above chance (p-value < 0.005; Supplementary Fig. 4), representative of the minimal and temporary autocorrelations observed for several single units. 
 
-The cluster spike times of cluster unit pairs exhibit lagged cross-correlations above chance for lags 1-5 (Supplementary Fig. 5), as expected for general adaptive trends. Only the lag-2 partial cross-correlation was above chance (Supplementary Fig. 5). This suggests that the individual adaptive trends of cluster pairs explains the majority of above chance cross-correlations, whilst there may be some finer sequential structure between a few unit pairs. 
+
+Cluster spike times for cluster pairs showed above chance lag-1 cross-correlations, which could be explained by clusters for which the spike times of both units were modulated by adaptation.
+Only the lag-2 partial cross-correlation was slightly above chance (lags 2-5 tested) (Supplementary Fig. 5), suggestive of minimal lagged cross-correlative structure between cluster spike times for some unit pairs after neural adaptation. 
 
 % Normality was rejected for X of Y single unit cluster spike times (Shapiro-Wilks p < 0.05; Supplementary Fig. 7) and X out of Y 2-dimensional angled clusters (Henze-Zirkler p < 0.05; Supplementary Fig. 7).
 
-
+This section demonstrated heterogeneity in the non-stationarity of Stage 2 clusters. Particularly, either the spike times of both units were not affected by adaptation (i.e. stationary clusters) or one or both of the units have cluster spike times modulated by adaptation (i.e. non-stationary clusters). These two cases must be treated differently when testing for adaptation-independent noise correlations.
 
 
 \subsection*{Analysis of stationary clusters}
+This section characterises the occurrence, angle and potential state-dependent encoding capacity of stationary Stage 2 clusters.
+% Stationary clusters, for which the spike times of neither unit are modulated by neural adaptation must be modulated by some non-adaptative underlying continuous state. 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedAngleSummary}
-Fig. 4g shows the histogram of variance explained by the stationary angled cluster correlations. Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7).
+Fig. 4g shows the proportion of variance explained by the stationary Stage 2 cluster correlations.
+\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedAndNormalAngleSummary}
+
+
+ Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7), confirming that the stationary Stage 2 cluster correlations are not caused by neural adaptative trends.
 
 
 \begin{figure}[t!]
@@ -376,21 +389,31 @@ Fig. 4g shows the histogram of variance explained by the stationary angled clust
 \label{fig:universe}
 \end{figure}
 
+The factor correlation matrix of each stationary Stage 2 clusters had only one eigenvalue greater than 1, suggesting that a single factor underlied each cluster correlation.
+\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} 
+% The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters.
 
-\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters. The factor correlation matrix of all criteria fulfilling angled cluster had only one eigenvalue greater than 1, suggesting that a single factor underlied the pairwise cluster covariations. The following single factor model was therefore fit to the elements of each (zero-centered) cluster: $s_i = \lambda_i \eta + \sigma_i$ for $i \in [0, 1]$ 
+The following single factor model was fit to the elements of each (zero-centered) cluster: $s_i = \lambda_i \eta + \sigma_i$ for $i \in [0, 1]$ 
 % and $s_1 = \lambda_1 \eta + \sigma_1$, 
 where $\eta$ represents the value of the underlying state, 
 $\lambda_i$ is the gradient at which the spike time of unit $i$ varies w.r.t. the state $\eta$, 
-and $\sigma_i$ is the predicted standard deviation of $s_i$ given $\eta$. Bootstrapping (1000 iterations) was used to calculate means of these values, which were used in subsequent analyses.
+and $\sigma_i$ is the predicted standard deviation of $s_i$ given $\eta$. Bootstrapping (1000 iterations) was used to calculate mean estimates of these values.
 
-The purple line in Fig. 5a shows the values predicted by the model for $\eta = [-4, 4]$ and $\sigma_i = 0$, re-centered around the cluster mean. $\theta_{45}$ angles of the factor lines were estimated using the same method used for PCA component angle estimation (Methods \ref{methods:cluster_angle_confidence_interval}) and were similar to the corresponding PCA $\theta_{45}$ angles (Fig. 5b). The purple ellipse in Fig. 5a has widths equal to $4\sigma_0, 4\sigma_1$ where  $\sigma_0, \sigma_1$ are the standard deviations of the predicted factor ($\eta$) dependent response distribution. This allows visual comparison of the estimated factor-conditioned response distribution to the larger $4\sigma$ areas under the assumptions of normality and independence (orange), normal and independent clusters (green flat cluster) and normal correlated clusters (green angled cluster). 
+The purple line in Fig. 5a shows the values predicted by the model for $\eta = [-4, 4]$ and $\sigma_i = 0$, re-centered around the cluster mean. $\theta_{45}$ angles of these factor anaylsis lines were also estimated 
+% using the same method used for PCA component angle estimation 
+(see Methods \ref{methods:cluster_angle_confidence_interval}) and were similar to the initial Stage 2 $\theta_{45}$ angles (Fig. 5b)\todo{Candidate to move to Supp Figs}. The purple ellipse in Fig. 5a has widths equal to $4\sigma_0, 4\sigma_1$ where  $\sigma_0, \sigma_1$ are the standard deviations of the predicted state ($\eta$) dependent response distribution. 
 
-The areas of the two-dimensional (i.e. two unit) factor dependent response distributions show a striking improvement in potential encoding power (Supplementary Vid. 1; Supplementary Fig. 8). The standard deviations $\sigma_i$ of the factor analysis predicted response distributions for units $i = 0,1$ separately are also strikingly smaller than those assumed by the simpler assumptions (Fig. 5c,d). The factor dependent predicted standard deviations, $\sigma$, are less than 1 for X\% of units and less than 2 for Y\% of units\todo[color=red!40]{Fill}. 
+The state-conditioned response distributions estimated by factor analysis allow visual (purple ellipses in Fig. 5a and top left of Supplementary Vid. 1) and quantitative (Fig. 5c,d,e; Supplementary Fig. 8) comparison of the estimated state-conditioned response distribution to the larger $4\sigma$ areas under fixed-state decoder assumptions of normality and independence (orange), normal and independent clusters (green flat cluster) and normal and correlated clusters (green angled cluster). The predicted state-conditioned response distributions are strikingly smaller than those predicted under the fixed-state assumptions, thus potentially offering an improved encoding capacity. 
+
+The factor dependent predicted standard deviations, $\sigma$, are less than 1 for X\% of units and less than 2 for Y\% of units\todo[color=red!40]{Fill}. 
+As the factor analysis model assumes that noise for each unit given $\eta$ is normally distributed and independent between units, the state-dependent difference standard deviation predicted by the model is equal to \(\sigma_{diff} = \sqrt{\sigma_{0}^2 + \sigma_{1}^2}\). The estimated $\sigma_{diff}$ values are strikingly lower than the original standard deviation of differences (Fig. 5e). 
+
+% The areas of the two-dimensional (i.e. two unit) state-dependent response distributions show a striking improvement in potential encoding power (Supplementary Vid. 1; Supplementary Fig. 8). The standard deviations $\sigma_i$ of the factor analysis predicted state-conditioned response distributions for units $i = 0,1$ separately are also strikingly smaller than those assumed by the simpler assumptions (Fig. 5c,d). 
 % This gives an estimate of potential encoding power for single units, given by the factor dependent response distributions. 
 % It is necessary to consider the results in terms of relative spike timing differences, which can be explicitly processed by downstream neurons.
-As the factor analysis model assumes that noise for each unit given $\eta$ is normally distributed and independent between units, the state-dependent difference standard deviation predicted by the model is equal to \(\sigma_{diff} = \sqrt{\sigma_{0}^2 + \sigma_{1}^2}\).
+
 % , where  $\sigma_0, \sigma_1$ are the standard deviations predicted by factor analysis given state $\eta$. 
-The estimated $\sigma_{diff}$ values are strikingly lower than the original standard deviation of differences (Fig. 5e). 
+
 
 % The factor analysis model therefore predicts factor-dependent distributions of differences with a higher potential for discriminable continua encoding than both unclustered spike time differences and clustered but factor-independent spike time differences.
 
@@ -406,6 +429,8 @@ The estimated $\sigma_{diff}$ values are strikingly lower than the original stan
 
 
 \subsection*{Differencing}
+
+[UP TO HERE]
 
 To test whether a shared state could underlie covariation in the remaining non-stationary angled clusters, the non-stationary single unit cluster spike times were differenced and rescaled (a standard time-series analysis technique) to remove neural adaptive trends by subtracting the spike time on trial t by the spike time on trial t-1.
 % Clusters which did not fulfil the criteria after differencing were removed from further analysis. 
