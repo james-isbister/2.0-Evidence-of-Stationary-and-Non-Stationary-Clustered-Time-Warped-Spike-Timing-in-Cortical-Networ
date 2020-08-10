@@ -176,8 +176,8 @@ The number of low-dimensional continuous latent states underlying the correlativ
 % and could explain the failure to find a fast and efficient ubiquitous spike code that utilises the high sensitivity of neural architecture and functional dynamics. In this study, such consideration gave a novel prediction of the resolution of neural stimulus representation. 
 
 
-\subsection{Notes}
-I have begun developing several techniques to address this but I think it may prove difficult to show anything strongly conclusive either way. I can give more details of this once we are agreed on the overall objectives. We may be able to address this issue, but it may turnout to require future experiments designed to get a higher cluster count per stimulus and experimental session. A bit of help attacking this problem and working on factor analysis in 3+ dimensions would also be helpful.
+% \subsection{Notes}
+% I have begun developing several techniques to address this but I think it may prove difficult to show anything strongly conclusive either way. I can give more details of this once we are agreed on the overall objectives. We may be able to address this issue, but it may turnout to require future experiments designed to get a higher cluster count per stimulus and experimental session. A bit of help attacking this problem and working on factor analysis in 3+ dimensions would also be helpful.
 
 % To our knowledge this is the first report demonstrating that 
 
@@ -236,7 +236,7 @@ I have begun developing several techniques to address this but I think it may pr
 
 \subsection*{Neurophysiology}
 
-The dataset used for this paper is reused from an earlier study, of which analyses and data collection methods have previously been reported \cite{reyes2014laminar}. In summary, extracellular recordings were made in 15 anaesthetised Wistar rats using 16 or 128 electrode silicon probes, inserted perpendicularly into the barrel cortex. Single whisker deflections were made at various frequencies (0.1-10Hz) in blocks, each containing typically 200 trials (sweeps) with an intertrial interval of 5 s (occasionally 10, 15, or 30 s). This was repeated for each of the selected target whiskers (maximum 4). Experimental sessions varied in terms of electrode placement, stimulated whiskers, stimulation frequencies and number of trials per unique stimulus. 7 experimental sessions used single shanks with 16 electrodes, whilst 8 experimental sessions used 8 neighbouring shanks (16 electrodes per shank) covering 2-4 barrel-related columns (median 4). Units were classified as excitatory or inhibitory and assigned to a cortical layers L2/3, L4, L5A and L5B/6 (see Methods \ref{methods:spike_sorting}). Spiking activity is analysed following cortical activation onset, determined as 5.2ms following stimulus onset (Supplementary Fig. 1).
+The dataset used for this paper is reused from an earlier study, of which analyses and data collection methods have previously been reported \cite{reyes2014laminar}. In summary, extracellular recordings were made in 15 anaesthetised Wistar rats using 16 or 128 electrode silicon probes, inserted perpendicularly into the barrel cortex. Single whisker deflections were made at various frequencies (0.066-10Hz) in blocks, each containing typically 200 trials (sweeps) with an inter trial interval of 5s (occasionally 10, 15, or 30 s). This was repeated for each of the selected target whiskers (maximum 4). Experimental sessions varied in terms of electrode placement, stimulated whiskers, stimulation frequencies and number of trials per unique stimulus. 7 experimental sessions used single shanks with 16 electrodes, whilst 8 experimental sessions used 8 neighbouring shanks (16 electrodes per shank) covering 2-4 barrel-related columns (median 4). Units were classified as excitatory or inhibitory and assigned to a cortical layers L2/3, L4, L5A and L5B/6 (see Methods \ref{methods:spike_sorting}). Spiking activity is analysed following cortical activation onset, determined as 5.2ms following stimulus onset (Supplementary Fig. 1).
 
 
 
@@ -263,7 +263,7 @@ This section justifies the analysis of first spike patterns as a cortical repres
 \todo{Do adaptation conclusion}
 \todo{Make adaptation stats overview paragraph simpler, with nice single bar chart}
 
-This section demonstrates that the responses of some neurons exhibit depressive latency adaptation, which should be controlled for when testing for correlative structure caused by a non-adaptive state. Figure 2d shows the first spike times of 5 single units in response to repeated stimulations. The L23E unit of Fig. 2d(i) demonstrates an irregular response pattern with adaptation. Whereas the L4I unit of Fig. 2d(ii) shows a short and consistent response, the L… unit of Fig. 2d(iii) reveals a sparse and variable pattern and no obvious adaptation. The L4I and L4I units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. 
+This section demonstrates that the responses of some neurons in all neuron-groups exhibit latency adaptation, which should be controlled for when testing for correlative structure caused by a non-adaptive state. Figure 2d shows the first spike times of 5 single units in response to repeated stimulations. The L23E unit of Fig. 2d(i) demonstrates an irregular response pattern with adaptation. Whereas the L4I unit of Fig. 2d(ii) shows a short and consistent response, the L… unit of Fig. 2d(iii) reveals a sparse and variable pattern and no obvious adaptation. The L4I and L4I units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. 
 
 Single unit first spike times are linearly correlated with trial number above chance (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p<.001$; Fig. 2e).
 % (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p = 1.027\textrm{e-132}$; Fig. 2e). 
@@ -284,35 +284,43 @@ Of the 63 first spike response distributions that were significantly correlated 
 \todo{Clear up final paragraph}
 \todo{Differences standard deviation}
 
-This section presents an example first spike pair response distribution for the purposes of understanding. Fig. 3a shows the distribution of first spike pairs in response to a 4Hz stimulation of a single whisker for two units in L5AI and L4I of the corresponding principle column (over a 50ms window following cortical activation onset). Only responses on `conjunctive trials' (trials in which both units spiked for the single stimulus) are shown. 
+For the purpose of understanding, this section presents an example distribution of first spike pairs for a pair of units (L5AI and L4I) in the principle column in response to a 4Hz stimulation of the corresponding principle whisker (over a 50ms window following cortical activation onset). Only responses on `conjunctive trials' (trials in which both units spiked for the single stimulus) are shown. The orange Gaussian is centered at the mean of the first spike pairs and has widths equal to 4 times the first spike time standard deviations of each unit (on conjunctive trial), illustrating the region from which 99.9\% of first spike pairs would be predicted to fall under the assumption of independence and normality (i.e. spike time jitter). This assumption fails to capture the distribution structure of this and many other spike pair distributions (Supplementary Vid. 1). 
+% Moreover, very few different stimuli could be encoded with high-discriminability. 
 
-The orange Gaussian is centered at the mean of the first spike pairs and has widths equal to 4 times the first spike time standard deviations of each unit (on conjunctive trial), illustrating the region from which 99.9\% of first spike pairs would be predicted to fall under the assumption of independence and normality (i.e. spike time jitter). This assumption fails to capture the distribution structure of this and many other spike pair distributions (Supplementary Vid. 1) and very few different stimuli to be encoded with high-discriminability. 
+% The spike time differences have a standard deviation of X (Fig. 3b), which is also poor for discriminable encoding. 
 
-The spike time differences have a standard deviation of X (Fig. 3b), which is also poor for discriminable encoding. 
+Instead, first spike pairs appear to come from one of two clusters (blue and green dots). Moveover, the green cluster appears correlated with non-unitary gradient, suggestive of some underlying continuous state, which covaries the first spike times of the two units from trial-to-trial. Moreover, the apparent non-unitary gradient of correlation suggests that the distribution of differences varies with respect to the value of this underlying state, such that the state-conditioned distribution of relative first spike differences would be more compact than the general case, thus offering a higher potential capacity for stimulus encoding if downstream neurons could respond in a state-dependent manner.
 
-First spike pairs in Fig. 3a appear to be drawn from one of two clusters (blue and green dots) in response to the same stimulus. The green cluster appears correlated with non-unitary gradient, suggestive of an underlying factor, which covaries first spike times, such that distributions of differences would be smaller when factor-conditioned, offering a higher power for discriminable encoding. 
+% \subsection*{Clustering algorithm summary}
 
 
-\subsection*{Clustering algorithm summary}
-A two-stage algorithm was developed to quantify the occurrence and angle of correlated clusters. 
-Stage 1 extracted well isolated \textit{`flat clusters'} defined by the $4\sigma$ boundary of flat 2D Gaussian ellipses (flat solid green ellipse in Fig. 3a; see Methods \ref{methods:flat_clusters} for details).  
+
+\subsection*{Stage 1 Clusters - Correlation analysis}
+
+A two-stage algorithm was developed to quantify the occurrence and angle of correlated clusters. Stage 1 of the algorithm extracted well isolated clusters defined by the $4\sigma$ boundary of flat 2D Gaussian ellipses (see Methods \ref{methods:flat_clusters}; e.g. flat solid green ellipse in Fig. 3a).
+\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary0}
+The algorithm was verified by confirming that the algorithm extracted correlated clusters at chance levels for multiple control data sets (see Methods \ref{methods:correlation_surrogate_control_datasets}; Supplementary Fig. 3). 
+
+
+
 % The algorithm applied the unsupervised DBSCAN clustering method to first spike response distributions for a range of values of the DBSCAN EPS free parameter. Repeated clusterings for different values of the EPS free parameter were removed from analysis. For DBSCAN clusters that were well isolated and had more than 20 elements, a bounding ellipse was defined from the means and standard deviations of points in the DBSCAN cluster (flat solid green ellipse in Fig. 3a). Points in this bounding ellipse were assigned to the `flat cluster'. 
-To assess the occurrence of correlated clusters without sample bias, repeated and similar flat clusters produced by non-identical DBSCAN clusterings were left in the final group of flat clusters (Methods \ref{methods:flat_clusters}). When the algorithm was verified on surrogate control datasets (see Methods \ref{methods:correlation_surrogate_control_datasets}) correlated clusters were found at chance levels (Supplementary Fig. 3). 
-
-Stage 2 of the clustering algorithm aimed to better estimate the shape of the distributions underlying correlated flat clusters (p-value < 0.005), by estimating an `angled cluster' ellipse (angled solid green ellipse in Fig. 3a; see Methods \ref{methods:angled_clusters}). Repeats, similar and non-isolated angled clusters were discarded. 
-\ExecuteMetaData[100msAnalysisOutputLatex.tex]{ClusterTimeSpanSummary} \ExecuteMetaData[AnalysisOutputLatex.tex]{AngledClustersUniquePairsSummary}
-X\%\todo[color=red!40]{Fill} of angled clusters contained spikes from all conjunctive trials (Fig. 3d).
+% To assess the occurrence of correlated clusters without sample bias, repeated and similar flat clusters produced by non-identical DBSCAN clusterings were left in the final group of flat clusters (Methods \ref{methods:flat_clusters}). 
 
 
-\subsection*{Correlation analysis}
-\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary1}
-\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary2}
 
 % The spike time of either neuron would be correlated with the difference \todo[color=green!40]{Figure?}(Fig. X) but due to independence there would be no process underlying this correlation, and thus no means by which downstream neurons could interpret the difference in a state-dependent manner (other than an event signal). Moreover, the discriminability of one neuron's spike time and the difference would be the same as that of the two neuron's spike times \todo[color=green!40]{Same figure}(Fig. X).  
 
 
-\subsection*{Cluster angle}
+\subsection*{Stage 2 Clusters - Angle analysis}
 \label{results:cluster_angle}
+
+To estimate the correlation angle of the correlated Stage 1 clusters, a corresponding `Stage 2' \textit{angled} $4\sigma$ ellipse was estimated for each correlated Stage 1 cluster (see Methods \ref{methods:angled_clusters}; e.g. angled solid green ellipse in Fig 3a). Stage 2 clusters which were non-isolated, repeats or contained smaller clusters were discarded. 
+\ExecuteMetaData[100msAnalysisOutputLatex.tex]{ClusterTimeSpanSummary}
+
+\ExecuteMetaData[AnalysisOutputLatex.tex]{AngledClustersUniquePairsSummary}
+\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary2}
+
+
 
 \begin{figure}[t!]
 \centering
@@ -321,10 +329,21 @@ X\%\todo[color=red!40]{Fill} of angled clusters contained spikes from all conjun
 \label{fig:universe}
 \end{figure}
 
-An algorithm was developed to estimate a mean angle and confidence interval for each angled cluster (see Methods \ref{methods:cluster_angle_confidence_interval} for details), to test whether the angles of angled clusters were significantly different from $45^{\circ}$ (possibly indicative of factor or trial-dependent spike time differences). The mean angles, $\theta$, of positively correlated angled clusters (between $0^{\circ}$ and $90^{\circ}$) were of interest. $\theta_{45} = min(\theta, 90-\theta)$ were calculated for analysis, as only the ordering of the units in the pair determined whether $\theta$ was above or below $45^{\circ}$.
+% X\%\todo[color=red!40]{Fill} of angled clusters contained spikes from all conjunctive trials (Fig. 3d).
 
+To test whether the cluster correlation angles were different from $45^{\circ}$, an algorithm was developed to estimate the angle $\theta$ of correlation for each Stage 2 cluster (see Methods \ref{methods:cluster_angle_confidence_interval}). A final $\theta_{45} = min(\theta, 90-\theta)$ angle was used for each Stage 2 cluster, as only the ordering of the units determined whether $\theta$ was above or below $45^{\circ}$.
+
+\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary1}
+Fig. 4a shows the estimated $\theta_{45}$ angles (with 95\% confidence intervals) for all positively correlated Stage 2 clusters.
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalAnglesSummary}
-The algorithm was tested on a surrogate control dataset to validate that the detection of such differences from $45^{\circ}$ were not artifacts of the algorithm (see Methods \ref{methods:angle_surrogate_control_dataset}; Supplementary Fig. 6). The following subsections aim to determine when trial number and/or another factor underlie such non-unitary covariation.
+This initial finding that shows that the distribution of relative first spike differences between two units depends on some some underlying processes.
+Following sections will aim to determine when neural adaptation and/or non-adaptative underlying states underlie such positive non-unitary correlations. 
+To validate that such differences from $45^{\circ}$ were not artifacts of the algorithm, the algorithm was tested on a surrogate control dataset (see Methods \ref{methods:angle_surrogate_control_dataset}; Supplementary Fig. 6). 
+
+The non-unitary correlations cannot be explained by a model in which the second spiking neuron spikes a fixed time difference after the first. 
+\ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary0p1}
+This strengthens the case that the spike timing correlations between pairs of neurons are co-modulated by some underlying processes. 
+
 
 
 
