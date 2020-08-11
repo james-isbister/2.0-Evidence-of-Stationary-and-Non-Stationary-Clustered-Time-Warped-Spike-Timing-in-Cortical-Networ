@@ -168,35 +168,23 @@ A previous study analysing the same data set found precise multi-neuron spike pa
 % as neurons are sensitive to the spatial and temporal pattern of synaptic activations \cite{gasparini2006state, branco2010dendritic, branco2011synaptic}.
 
 
-
-
-
-
-
-
-
-
-
-
-
 For repeated trials of a single stimulus, the first spike times of two units were plotted against each other for trials on which they both spiked. For example, Fig. X shows first spike pairs for a pair of units (L5AI and L4I) in the principle column in response to a 4Hz stimulation of the corresponding principle whisker. First spike pairs appear to come from one of two clusters (blue and green dots) for presentations of the same stimulus. Moreover, the green cluster appears correlated with non-unitary gradient (different from $45^{\circ}$). 
 
-Such correlated clusters were observed in a large number of first spike pair distributions (Supplementary Vid. 1) and represent reliable regions of the response distribution space that can be analysed to test the nature of spike timing noise correlations. The correlative structure could be caused by neural adaptation, a continuous non-adaptative latent state or a combination of the two.
+Correlated clusters were observed in a large number of first spike pair distributions (Supplementary Vid. 1). A novel algorithm extracted isolated clusters from single stimulus first spike pair response distributions, demonstrating that temporally precise spike patterns fire on subsets of trials, as shown previously for the data set \cite{reyes2014laminar}. The algorithm, however, also showed that first spike pairs within these isolated clusters were positively correlated above chance-levels. These correlated clusters represent reliable regions of response distribution space that allow analysis of spike timing noise correlations possibly caused by neural adaptation, a continuous non-adaptative latent state or a combination of both. A large proportion of these noise correlations would have been missed without clustering. 
 
 % The paper aims to test that the occurrence of correlated clusters is above chance and to test the degree to which such correlations are caused by adaptative and non-adaptative processes. 
 
 % (Fig X; see plots in the top left of Supplementary Vid. 1). 
 
-A novel algorithm extracted isolated clusters from single stimulus first spike pair response distributions, demonstrating that temporally precise spike patterns fire on subsets of trials, as shown previously for the data set \cite{reyes2014laminar}. The algorithm, however, also showed that first spike pairs within these isolated clusters were positively correlated above chance-levels. A large proportion of these noise correlations would have been missed without clustering. Moreover, many of the correlated clusters had non-unitary correlation angles. 
-
+ 
+Interestingly, many of the correlated clusters had non-unitary correlation angles. 
 Importantly, clusters remained correlated with non-unitary gradient after controlling for neural adaptation,
 % using time series analysis, 
-giving evidence of precise non-adaptive noise correlations. Such non-unitary spike time correlation angles cannot be explained by a trial-to-trial shift in the onset of the stimulus or cortical activity, which would produce correlations with a unitary gradient (i.e. a $45^{\circ}$ angle). Instead the `non-unitary' correlation gradients may be indicative of covariation by a non-adaptative continuous latent state that varies from trial-to-trial. 
+giving evidence of precise non-adaptive noise correlations. Such non-unitary spike time correlation angles cannot be explained by a trial-to-trial shift in the onset of the stimulus or cortical activity, which would produce correlations with a unitary gradient (i.e. a $45^{\circ}$ angle). Instead the `non-unitary' correlation gradients are indicative of covariation by a non-adaptative continuous latent state that varies from trial-to-trial. 
 
-This novel finding of `adaptation-independent clustered time-warped spike-timing noise correlations' shows that the distribution of decodable first spike time relative differences for pairs of neurons are `warped' from trial-to-trial by some `non-adaptive' continuous latent state.
+This novel finding of `adaptation-independent clustered time-warp spike-timing noise correlations' shows that the distribution of decodable first spike time relative differences for pairs of neurons are `warped' from trial-to-trial by some `non-adaptive' continuous latent state.
 % This phenomenon is referred to as `adaptation-independent clustered time-warped spike-timing noise correlations'. 
 This differs from previous `time-warp' studies, which aim to align spike trains over trials and do not simultaneously consider stimulus encoding, clustering, adaptation and different warping functions for different neurons \cite{williams2020discovering}.
-
 
 The characterisation of adaptation-independent clustered spike-timing noise correlations is useful under the fixed-state decoder interpretations where noise correlations can either increase or decrease encoding capacity \cite{averbeck2006neural}. More interestingly, these noise correlations open the possibility of state-dependent spike time coding. Factor analysis provided an estimate of state-dependent response distributions of first spike pairs (and relative first spike differences) for each adaptation-controlled correlated cluster. This gave a prediction of the resolution of possible state-dependent encoding, which surpasses previously proposed coding forms. 
 
