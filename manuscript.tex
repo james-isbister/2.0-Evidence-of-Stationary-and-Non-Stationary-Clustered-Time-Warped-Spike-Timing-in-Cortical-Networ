@@ -243,32 +243,36 @@ The dataset used for this paper is reused from an earlier study, of which analys
 \begin{figure}[t!]
 \centering
 \includegraphics[width=\textwidth]{Figure2.pdf}
-\caption{Initial response and first spike time non-stationarity. (a) Spike count histograms (not including 0 spike count) for the 6 neuron groups over 25ms (left) and 100ms (right) following cortical response (responses pooled over all stimuli and trials). (b) Normalised PSTHs following stimulus onset of 6 neuron groups averaged over all stimuli and trials. Cortical onset is marked by the green line. (c) Spike count mean vs variance for all stimuli and unit combinations. (d) First spike rasters following cortical onset for five unit stimulus combinations. (e) P-values of linear regressors fit to predict first spike time from trial index for all stimulus and unit combinations. (f) $R$ (green) and $R^2$ (blue) of linear regressors fit to predict first spike time from trial index for all stimulus and unit combinations. (g) First spike time KPSS p-values for all stimulus and unit combinations. Implementation of p-value estimation rounds all p-values $>0.1$ to 0.1.}
+\caption{Initial response and first spike time non-stationarity. (a) Spike count histograms (not including 0 spike count) for the 6 neuron groups over 25ms (left) and 100ms (right) following cortical response (responses pooled over all stimuli and trials). (b) Normalised PSTHs following stimulus onset of 6 neuron groups averaged over all stimuli and trials. Cortical onset is marked by the green line. (c) Spike count mean vs variance for all stimuli and unit combinations. (d) First spike rasters following cortical onset for five unit stimulus combinations. The L23E unit of Fig. 2d(i) demonstrates an irregular response pattern with adaptation. Whereas the L4I unit of Fig. 2d(ii) shows a short and consistent response, the L… unit of Fig. 2d(iii) reveals a sparse and variable pattern and no obvious adaptation. The L4I and L4I units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. (e) P-values of linear regressors fit to predict first spike time from trial index for all stimulus and unit combinations. (f) $R$ (green) and $R^2$ (blue) of linear regressors fit to predict first spike time from trial index for all stimulus and unit combinations. (g) First spike time KPSS p-values for all stimulus and unit combinations. Implementation of p-value estimation rounds all p-values $>0.1$ to 0.1.}
 \label{fig:universe}
 \end{figure}
 
 
 \subsection*{Single spike patterns}
 
-\todo{Add PSTH of single stimulus. i.e. 1Hz over 10 and all stimuli maybe}
-\todo{Do conclusion}
-
-This section justifies the analysis of first spike patterns as a cortical representation of single whisker deflections. Firstly, this section demonstrates that the majority of neurons respond to single whisker deflections with either 0 or 1 spike (Fig. 2a). Spike count encoding therefore has a low capacity for discriminable stimulus encoding, made worse by high spike count variance (Fig. 2b). The responses of each unit-type and layer group (averaged over stimuli) demonstrate a clear initial response, followed by a tailing-off (Fig. 2c). The paper aims to better characterise this initial (largely single spike) response.
+This section presents evidence that supports the analysis of first spike patterns as a cortical representation of single whisker deflections. Firstly, the majority of neurons respond to single whisker deflections with either 0 or 1 spike (Fig. 2a) with high spike count variance (Fig. 2b). Spike count encoding therefore has a low capacity for discriminable stimulus encoding. The responses of each unit-type and layer group (averaged over stimuli) demonstrate a clear initial response, followed by a tailing-off (Fig. 2c). The paper aims to better characterise multi-neuron single spike patterns within this initial response.
 
 
 \subsection*{Spike latency adaptation}
 
-\todo{Look at adaptation by neuron type and layer}
 \todo{Select final adaptation examples, with layers and stats.}
 \todo{Do adaptation conclusion}
-\todo{Make adaptation stats overview paragraph simpler, with nice single bar chart}
 
-This section demonstrates that the responses of some neurons in all neuron-groups exhibit latency adaptation, which should be controlled for when testing for correlative structure caused by a non-adaptive state. Figure 2d shows the first spike times of 5 single units in response to repeated stimulations. The L23E unit of Fig. 2d(i) demonstrates an irregular response pattern with adaptation. Whereas the L4I unit of Fig. 2d(ii) shows a short and consistent response, the L… unit of Fig. 2d(iii) reveals a sparse and variable pattern and no obvious adaptation. The L4I and L4I units of Fig. 2d(iv, v) demonstrate more complex response-distribution structure and possible non-linear non-stationarity. 
+This section demonstrates that a significant proportion of units exhibit spike latency adaptation, which must be controlled for when testing for non-adpatative noise correlations. In response to repetitions of single stimuli, single unit first spike time adaptative trends are heterogeneous (Fig 2d), with many units showing no adaptation. For repeated trials of single stimuli, the first spike times of an above-chance proportion of single units in 7 out of 8 unit groups are linearly correlated with trial index and are KPSS non-stationary (Fig. 2e). $90\%$ (57/63) of these linear correlations with trial index were positive (Fig. 2f), supporting depressive latency adaptation \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}.\todo{Automate depressive latency sentence} Only the lag-2 partial autocorrelation was slightly above chance (lags 2-5 tested, Supplementary Fig. 2), suggestive of additional structure in the trial-to-trial sequence of first spike times for a small number of units. These findings show that tests for non-adpatative noise correlations must control for latency adaptation.
 
-Single unit first spike times are linearly correlated with trial number above chance (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p<.001$; Fig. 2e).
+
+% first spike times of single units show largely heterogeneous relationships with trial index over repeated 
+
+% Single unit first spike time relationships with trial index in response to repeated stimulations are highly heterogeneous (Fig 2d) 
+
+% Figure 2d shows the first spike times of 5 single units in response to repeated stimulations.
+
+% (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p<.001$; Fig. 2e).
 % (Fisher's method: $\chi^{2} (1786, N = 893) = 3672.69, p = 1.027\textrm{e-132}$; Fig. 2e). 
-Of the 63 first spike response distributions that were significantly correlated with trial index (p<.005), $90\%$ (57/63) were positively correlated (Fig. 2f), supporting depressive latency adaptation \cite{ahissar2000transformation, ahissar2001temporal, kheradpezhouh2017response}. The KPSS null hypothesis of stationarity was rejected for p-value < 0.05 for 19\% (168/893) first spike response distributions (Fig. 2g). Autocorrelations of single-unit single-stimulus first spike times were above chance for lags 1-5 (Supplementary Fig. 2), furthering support of general adaptive trends. Only the lag-2 partial autocorrelation was slightly above chance (Supplementary Fig. 2), suggestive of additional structure in the trial-to-trial sequence of first spike times for a small number of units, beyond adaptive trends.
-% after accounting for general adaptive trends.
+%  The KPSS null hypothesis of stationarity was rejected for p-value < 0.05 for 19\% (168/893) first spike response distributions (Fig. 2g). 
+
+% Autocorrelations of single-unit single-stimulus first spike times were above chance for lags 1-5 (Supplementary Fig. 2), furthering support of general adaptive trends. 
+
 
 
 \subsection*{Example first spike pair response distribution}
@@ -280,7 +284,7 @@ Of the 63 first spike response distributions that were significantly correlated 
 \label{fig:fig3}
 \end{figure}
 
-\todo{Do introduction (objectives) and summary}
+
 \todo{Clear up final paragraph}
 \todo{Differences standard deviation}
 
@@ -373,13 +377,13 @@ This section demonstrated heterogeneity in the non-stationarity of Stage 2 clust
 \subsection*{Analysis of stationary clusters}
 This section characterises the occurrence, angle and potential state-dependent encoding capacity of stationary Stage 2 clusters.
 % Stationary clusters, for which the spike times of neither unit are modulated by neural adaptation must be modulated by some non-adaptative underlying continuous state. 
-\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedSummary}
+In total, \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedAngleSummary}
 Fig. 4g shows the proportion of variance explained by the stationary Stage 2 cluster correlations.
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedAndNormalAngleSummary}
 
 
- Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7), confirming that the stationary Stage 2 cluster correlations are not caused by neural adaptative trends.
+Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7), confirming that the stationary Stage 2 cluster correlations are not caused by neural adaptative trends.
 
 
 \begin{figure}[t!]
@@ -389,7 +393,7 @@ Fig. 4g shows the proportion of variance explained by the stationary Stage 2 clu
 \label{fig:universe}
 \end{figure}
 
-The factor correlation matrix of each stationary Stage 2 clusters had only one eigenvalue greater than 1, suggesting that a single factor underlied each cluster correlation.
+
 \ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} 
 % The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters.
 
@@ -766,7 +770,7 @@ To validate that such differences from $45^{\circ}$ were not artifacts of the al
 \subsection{Criteria cluster angle and factor analysis}
 \label{methods:angle_and_factor_analysis_criteria}
 
-Clusters were determined to be stationary and sufficiently correlated such that an underlying factor could underlie the covariation if they passed the following 5 tests: (1) LR p-value < 0.05, r-value > 0.3, (2) Bartlett spherecity p-value > 0.05, (3) multi-output $r^2 < 0.05$, (4) both units trial index LR p-value > 0.05, (5) both units KPSS p-value > 0.05. (6) Both units lag-1 autocorrelation p-value > 0.05 (this requirement was relaxed for the differenced clusters but not ARIMA clusters). Bartlett spherecity tests that the correlation matrix is significantly different from the identity, and is a standard pre-test for factor analysis. The Kaiser-Meyer-Olkin (KMO) factor analysis pre-test for factor analysis was unnecessary, as there were only two units, the partial correlation matrix and the correlation matrix are the same.
+Clusters were determined to be stationary and sufficiently correlated such that an underlying factor could underlie the covariation if they passed the following 5 tests: (1) LR p-value < 0.05, r-value > 0.3, (2) Bartlett spherecity p-value > 0.05, (3) multi-output $r^2 < 0.05$, (4) both units trial index LR p-value > 0.05, (5) both units KPSS p-value > 0.05. (6) Both units lag-1 autocorrelation p-value > 0.05 (this requirement was relaxed for the differenced clusters but not ARIMA clusters). (7) The factor correlation matrix had only one eigenvalue greater than 1, suggesting that a single factor underlied each cluster correlation. Bartlett spherecity tests that the correlation matrix is significantly different from the identity, and is a standard pre-test for factor analysis. The Kaiser-Meyer-Olkin (KMO) factor analysis pre-test for factor analysis was unnecessary, as there were only two units, the partial correlation matrix and the correlation matrix are the same.
 
 
 
