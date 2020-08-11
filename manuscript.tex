@@ -324,7 +324,7 @@ This section demonstrates that a significant proportion of units exhibit spike l
 Analysing the joint responses of two or more units to repeated presentations of a single stimulus offers the opportunity to discern noise correlations caused by adaptative or non-adaptative processes.
 A two-stage algorithm was developed to quantify the occurrence and angle of correlated clusters observed in first spike response distributions for pairs of units (Fig. X; top left of Supplementary Vid. 1). Stage 1 of the algorithm extracted well isolated clusters defined by the $4\sigma$ boundary of flat 2D Gaussian ellipses (see Methods \ref{methods:flat_clusters}; e.g. flat solid green ellipse in Fig. 3a).
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary0}
-The algorithm was verified by confirming that the algorithm extracted correlated clusters at chance levels for multiple control data sets (see Methods \ref{methods:correlation_surrogate_control_datasets}; Supplementary Fig. 3). 
+The algorithm was verified by confirming that the algorithm extracted correlated clusters at chance levels for multiple control data sets (see Methods \ref{methods:correlation_surrogate_control_datasets}; Supplementary Fig. 3). The correlated clusters can be analysed to test whether the correlations are explained by adaptative or non-adaptative processes.
 
 
 
@@ -345,7 +345,7 @@ Stage 2 clusters which were non-isolated, repeats or contained smaller clusters 
 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{AngledClustersUniquePairsSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary2}
-
+These results suggest show that clustering is necessary to uncover spike time noise correlations between a large proportion of unit pairs.
 
 \begin{figure}[t!]
 \centering
@@ -365,34 +365,36 @@ This initial finding shows that for some pairs of units the distribution of rela
 Following sections aim to determine when neural adaptation and/or non-adaptative underlying states underlie such positive non-unitary correlations. 
 To validate that such differences from $45^{\circ}$ were not artifacts of the Stage 2 cluster estimation algorithm, the algorithm was tested on a surrogate control dataset (see Methods \ref{methods:angle_surrogate_control_dataset}; Supplementary Fig. 6). 
 
-The non-unitary correlations cannot be explained by a model in which the second spiking neuron spikes a fixed time difference after the first. 
+Finally, the non-unitary correlation angles and the fact that
+% cannot be explained by a model in which the second spiking neuron spikes a fixed time difference after the first. 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterCorrelationSummary0p1}
-This strengthens the case that the spike timing correlations between pairs of neurons are co-modulated by some underlying process. 
+This strengthens the case that the spike timing correlations between pairs of neurons are co-modulated by some underlying process or processes. 
 
 
 
 
 \subsection*{Cluster stationarity}
 
-This section tests both whether cluster spike times for individual units are affected by neural adaptation and also the degree to which neural adaptation explains cluster correlations.
+This section tests both whether cluster spike times for individual units are affected by neural adaptation. 
+% and also the degree to which neural adaptation explains cluster correlations.
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterSingleUnitTrialIndexLRSummary}
 \ExecuteMetaData[AnalysisOutputLatex.tex]{ClusterSingleUnitKPSSStationaritySummary}
 Only a small amount of variance was explained by the linear models fit to predict the joint spike pair times from trial number (Fig. 4d). 
 
 % supporting that neural adaptation does not alone explain cluster correlations. 
 % More complex first spike time relationships with trial index were also observed. 
-Lag-1 autocorrelations of single unit cluster spike times were above chance [STAT], as expected by the spike times of some units being affected by adaptation.
-Beside general adaptive trends, some single units exhibited short trial-by-trial sequences (3-4 trials) of autocorrelated first spike times, before losing such autocorrelations. 
+% Lag-1 autocorrelations of single unit cluster spike times were above chance [STAT], as expected by neural adaptation affecting the spike times of some units.
+Beside general adaptive trends, some single units exhibited short and occasional trial-by-trial sequences (3-4 trials) of autocorrelated first spike times.
 % Lagged autocorrelations were significantly above chance for a high number of lags (Supplementary Fig. 4) supportive of general adaptive trends. 
- Only the lag-2 partial autocorrelation (lags 2-5 tested) was significantly above chance (p-value < 0.005; Supplementary Fig. 4), representative of the minimal and temporary autocorrelations observed for several single units. 
+Only the lag-2 partial autocorrelation (lags 2-5 tested) was significantly above chance (p-value < 0.005; Supplementary Fig. 4), representative of these short and occasional lagged autocorrelations. Only the lag-2 partial cross-correlation was slightly above chance (lags 2-5 tested) (Supplementary Fig. 5), suggestive of minimal lagged cross-correlative structure between cluster spike times for some unit pairs after neural adaptation. Such highly infrequent and short lag-2 auto and cross-correlations could be ignored when determining cluster stationarity.
 
 
-Cluster spike times for cluster pairs showed above chance lag-1 cross-correlations, which could be explained by clusters for which the spike times of both units were modulated by adaptation.
-Only the lag-2 partial cross-correlation was slightly above chance (lags 2-5 tested) (Supplementary Fig. 5), suggestive of minimal lagged cross-correlative structure between cluster spike times for some unit pairs after neural adaptation. 
+% Cluster spike times for cluster pairs showed above chance lag-1 cross-correlations, which could be explained by clusters for which the spike times of both units were modulated by adaptation.
+
 
 % Normality was rejected for X of Y single unit cluster spike times (Shapiro-Wilks p < 0.05; Supplementary Fig. 7) and X out of Y 2-dimensional angled clusters (Henze-Zirkler p < 0.05; Supplementary Fig. 7).
 
-This section demonstrated heterogeneity in the non-stationarity of Stage 2 clusters. Particularly, either the spike times of both units were not affected by adaptation (i.e. stationary clusters) or one or both of the units have cluster spike times modulated by adaptation (i.e. non-stationary clusters). These two cases must be treated differently when testing for adaptation-independent noise correlations.
+This section demonstrated heterogeneity in the non-stationarity of Stage 2 clusters. Particularly, either the spike times of both units were not modulated by adaptation (i.e. stationary clusters) or the cluster spike times of one or both of the units are adaptation-modulated (i.e. non-stationary clusters). In the latter case, neural adaptation must be accounted for when testing for adaptation-independent noise correlations.
 
 
 \subsection*{Analysis of stationary clusters}
@@ -405,6 +407,8 @@ Fig. 4g shows the proportion of variance explained by the stationary Stage 2 clu
 
 
 Autocorrelations, cross-correlations, partial autocorrelations and partial cross-correlations were at chance levels for the stationary clusters (Supplementary Fig. 7), confirming that the stationary Stage 2 cluster correlations are not caused by neural adaptative trends.
+\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} 
+% The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters.
 
 
 \begin{figure}[t!]
@@ -415,8 +419,6 @@ Autocorrelations, cross-correlations, partial autocorrelations and partial cross
 \end{figure}
 
 
-\ExecuteMetaData[AnalysisOutputLatex.tex]{OriginalTestsPassedFactorAnalysisSummary} 
-% The following sections apply time series analysis techniques to remove the neural adaptive trends of the non-stationary units of the remaining clusters.
 
 The following single factor model was fit to the elements of each (zero-centered) cluster: $s_i = \lambda_i \eta + \sigma_i$ for $i \in [0, 1]$ 
 % and $s_1 = \lambda_1 \eta + \sigma_1$, 
@@ -428,7 +430,7 @@ The purple line in Fig. 5a shows the values predicted by the model for $\eta = [
 % using the same method used for PCA component angle estimation 
 (see Methods \ref{methods:cluster_angle_confidence_interval}) and were similar to the initial Stage 2 $\theta_{45}$ angles (Fig. 5b)\todo{Candidate to move to Supp Figs}. The purple ellipse in Fig. 5a has widths equal to $4\sigma_0, 4\sigma_1$ where  $\sigma_0, \sigma_1$ are the standard deviations of the predicted state ($\eta$) dependent response distribution. 
 
-The state-conditioned response distributions estimated by factor analysis allow visual (purple ellipses in Fig. 5a and top left of Supplementary Vid. 1) and quantitative (Fig. 5c,d,e; Supplementary Fig. 8) comparison of the estimated state-conditioned response distribution to the larger $4\sigma$ areas under fixed-state decoder assumptions of normality and independence (orange), normal and independent clusters (green flat cluster) and normal and correlated clusters (green angled cluster). The predicted state-conditioned response distributions are strikingly smaller than those predicted under the fixed-state assumptions, thus potentially offering an improved encoding capacity. 
+The state-conditioned response distributions estimated by factor analysis allow visual (purple ellipses in Fig. 5a and top left of Supplementary Vid. 1) and quantitative (Fig. 5c,d,e; Supplementary Fig. 8) comparison of the estimated state-conditioned response distribution to the larger $4\sigma$ areas under fixed-state decoder assumptions of normality and independence (orange), normal and independent clusters (green flat cluster) and normal and correlated clusters (green angled cluster). The predicted state-conditioned response distributions are strikingly smaller than those predicted under the fixed-state assumptions, thus offering an improved encoding capacity if downstream neurons can respond in a state-dependent manner. 
 
 The factor dependent predicted standard deviations, $\sigma$, are less than 1 for X\% of units and less than 2 for Y\% of units\todo[color=red!40]{Fill}. 
 As the factor analysis model assumes that noise for each unit given $\eta$ is normally distributed and independent between units, the state-dependent difference standard deviation predicted by the model is equal to \(\sigma_{diff} = \sqrt{\sigma_{0}^2 + \sigma_{1}^2}\). The estimated $\sigma_{diff}$ values are strikingly lower than the original standard deviation of differences (Fig. 5e). 
@@ -455,21 +457,27 @@ As the factor analysis model assumes that noise for each unit given $\eta$ is no
 
 \subsection*{Differencing}
 
-[UP TO HERE]
-
-To test whether a shared state could underlie covariation in the remaining non-stationary angled clusters, the non-stationary single unit cluster spike times were differenced and rescaled (a standard time-series analysis technique) to remove neural adaptive trends by subtracting the spike time on trial t by the spike time on trial t-1.
+To test whether a non-adaptative latent state could also modulate the non-stationary Stage 2 clusters, non-stationary single unit cluster spike times were differenced and rescaled (a standard time-series analysis technique) to remove neural adaptive trends (see Methods \ref{methods:differencing}).
+% by subtracting the spike time on trial t by the spike time on trial t-1.
 % Clusters which did not fulfil the criteria after differencing were removed from further analysis. 
 % Differencing a time series reduces the number of samples by 1 (Methods \ref{methods:angle_and_factor_analysis_criteria}). 
-The green angled cluster of Fig. 3a fulfils the criteria after the spike times of its non-stationary unit are differenced (Fig. 6a). Application of the angle estimation technique estimated that the angle was X\todo[color=red!40]{Fill} plus minus Y (Fig. 6a), similar to the original angle and suggestive of an underlying factor after the removal of trial dependence. As expected by differencing, the spike times of the differenced unit show negative lag-1 autocorrelations and negative lag-2 partial autocorrelations (Fig. 6a). 
+As expected by differencing, the spike times of the differenced unit show negative lag-1 and 2 partial autocorrelations (Fig. 6a; Supplementary Fig. 9?). 
+% Due to the expected negative autocorrelations introduced as expected by differencing (Supplementary Fig. 9), 
+The autocorrelation criterion (criterion 6, Methods \ref{methods:angle_and_factor_analysis_criteria}) for cluster stationarity was therefore relaxed. The following section applies a more complex time series model to remove the negative autocorrelations. The assessment of `raw' differences in this section, however, allows a direct assessment of cluster angles after trend removal. 
+
+
+The green Stage 2 cluster of Fig. 3a fulfils the stationarity and correlation criteria (Methods \ref{methods:angle_and_factor_analysis_criteria}) after the spike times of its non-stationary unit are differenced (Fig. 6a). The $\theta_{45}$ angle was calculated as X\todo[color=red!40]{Fill} plus minus Y (Fig. 6a), similar to the original angle and suggestive of covariation by an underlying state after the removal of the non-stationary unit's adaptative trend.
+
 % Such negative autocorrelations are expected by differencing, and are removed in the next section by fitting ARIMA models.
 
- 
-Due to the expected negative autocorrelations introduced by differencing (Supplementary Fig. 9), the criteria for cluster unit autocorrelation p-values < 0.05, was relaxed for the differenced clusters (criterion 6, Methods \ref{methods:angle_and_factor_analysis_criteria}).
+
+
+
 \ExecuteMetaData[AnalysisOutputLatex.tex]{SelectivelyDifferencedTestsPassedNewSummary}
 
 \ExecuteMetaData[AnalysisOutputLatex.tex]{SelectivelyDifferencedTestsPassedEigenvalueSummary}
 Again, the factor analysis angles show close similarity to the PCA angles (Fig. 6e).
-The standard deviations of the factor-dependent response distributions (estimated by factor analysis) again offer a strikingly higher potential for encoding than simpler neural coding assumptions (Fig. 6a; Supplementary Vid 1; Fig. 6f,g; Supplementary Fig. 10).
+The standard deviations of the state-dependent response distributions estimated by factor analysis again offer a strikingly higher potential for encoding than simpler neural coding assumptions (Fig. 6a; Supplementary Vid 1; Fig. 6f,g; Supplementary Fig. 10).
 
 % Negative lag-1 autocorrelations were found above chance levels but at chance for lags 2-12 (Supplementary Fig. X). Negative partial autocorrelations were found for lags 1-4 above chance levels, and at chance levels for lags 5-12 (Supplementary Fig. X). Such negative autocorrelations are expected by differencing. Positive autocorrelations and partial autocorrelations were found at or below chance for lags 1-12 (Supplementary Fig. X). It was inappropriate to assess cross correlations, which could be spuriously due to autocorrelations.
 
@@ -807,7 +815,8 @@ Clusters were determined to be stationary and sufficiently correlated such that 
 Differencing a time series reduces the number of samples by 1.
 For clusters for which the spike times of only one unit was differenced, the first sample of the undifferenced unit was removed, so that the number of samples was equal for both units. In this case a spike time for an undifferenced trial t was matched with the difference between the spike times on trial t and trial t - 1.
 
-Differencing increases the standard deviation of a time series $S = (s_1, ..., s_t)$ by approximately 2. This is shown by considering differencing as approximate to negating two independent random variables $S_{(1, t-1)} = (s_1, ..., s_{t-1})$ and $S_{(2, t)} = (s_2, ..., s_t)$, where $t$ is the number of samples in the original time series. As the standard deviation of $S_{(0, t-1)}$ and $S_{(1, t)}$ are approximate to the standard deviation of the original series $S$, the standard deviation of the differences is on the order of \(\sigma_{differenced} \approx \sqrt{\sigma_{(1, t-1)}^2 + \sigma_{(2, t)}^2} \approx  \sqrt{2\sigma^2} \).  Differenced time series were therefore divided by 2, which later comparison to ARIMA models shows to be reasonable. The assessment of `raw' differences, rather than the ARIMA residuals, however, allows a direct assessment of cluster angles after trend removal.
+Differencing increases the standard deviation of a time series $S = (s_1, ..., s_t)$ by approximately 2. This is shown by considering differencing as approximate to negating two independent random variables $S_{(1, t-1)} = (s_1, ..., s_{t-1})$ and $S_{(2, t)} = (s_2, ..., s_t)$, where $t$ is the number of samples in the original time series. As the standard deviation of $S_{(0, t-1)}$ and $S_{(1, t)}$ are approximate to the standard deviation of the original series $S$, the standard deviation of the differences is on the order of \(\sigma_{differenced} \approx \sqrt{\sigma_{(1, t-1)}^2 + \sigma_{(2, t)}^2} \approx  \sqrt{2\sigma^2} \).  Differenced time series were therefore divided by 2, which later comparison to ARIMA models shows to be reasonable. 
+The assessment of `raw' differences, rather than the ARIMA residuals, however, allows a direct assessment of cluster angles after trend removal.
 
 
 
