@@ -24,7 +24,7 @@
 
 % \usepackage[colorinlistoftodos]{todonotes}
 
-\usepackage[nomarkers,notablist,nofiglist]{endfloat}
+% \usepackage[nomarkers,notablist,nofiglist]{endfloat}
 \usepackage[colorinlistoftodos,disable]{todonotes}
 
 
@@ -38,7 +38,7 @@ style=nature,
 
 
 
-\title{evidence of adaptation-independent time-warped spike timing noise correlations in cortical networks}
+\title{evidence of adaptation-independent time-warp spike timing noise correlations in cortical networks}
 
 
 \author{
@@ -57,10 +57,6 @@ style=nature,
   Vicente Reyes-Puerta\\
   Johannes Gutenberg University, Germany
   
-%   \And
-%   Irina Higgins\\
-%   DeepMind
-
   \And
   Jyh-Jang Sun\\
   NERF, Belgium
@@ -76,7 +72,7 @@ style=nature,
 \begin{document}
 \maketitle
  
-% \begin{abstract}
+\begin{abstract}
 % % http://blogs.nature.com/naturejobs/2014/11/03/how-to-get-published-in-high-impact-journals-big-research-and-better-writing/
 % % \color{blue}`Do not undersell your research. “If you find something big, tell us!'\color{Black} 
 
@@ -84,24 +80,38 @@ style=nature,
 
 % Sensory stimulation induced patterns of action potentials recorded in adult rat cortex in vivo allow investigation of neural coding principles. 
 
-% Patterns of action potentials induced by sensory stimulation in vivo allow investigation of neural coding principles. Trial-to-trial variability engenders debate over temporal and rate codes. Characterising distributions of stimulus responses enables discovery of response properties, which reliably encode the stimulus and may affect other processes. Non-stationarity (i.e. trial dependence) and noise correlations complicate such characterisation. A novel algorithm found correlated clusters above chance in first spike stimulus-response distributions for pairs of barrel cortex units. First spike times covaried at angles different from $45^{\circ}$ for a proportion of stationary and non-stationary (after removal of trial-dependence) clusters, suggestive of an underlying factor warping the distribution of decodable relative spike time differences from trial-to-trial. Factor analysis allowed estimation of factor-dependent and trial-independent stimulus response distributions, with a high estimated potential for discriminable stimulus encoding. The results suggest that consideration of clustering, factor-dependence and non-stationarity, together, are necessary to explain a large proportion of neural variability.
+Patterns of action potentials induced by sensory stimulation in vivo allow investigation of neural coding principles. Trial-to-trial variability engenders debate over temporal and rate codes. Characterising distributions of stimulus responses enables discovery of response properties, which reliably encode the stimulus and may affect other processes. Non-stationarity (i.e. trial dependence) and noise correlations complicate such characterisation. A novel algorithm found correlated clusters above chance in first spike stimulus-response distributions for pairs of barrel cortex units. First spike times covaried at angles different from $45^{\circ}$ for a proportion of stationary and non-stationary (after removal of trial-dependence) clusters, suggestive of an underlying factor warping the distribution of decodable relative spike time differences from trial-to-trial. Factor analysis allowed estimation of factor-dependent and trial-independent stimulus response distributions, with a high estimated potential for discriminable stimulus encoding. The results suggest that consideration of clustering, factor-dependence and non-stationarity, together, are necessary to explain a large proportion of neural variability.
 
 
-% \end{abstract}
+\end{abstract}
 
 
 % \keywords{Neural coding, precise spike timing, time-warp, state-dependent processing, barrel cortex, noise correlations, neural adaptation, in vivo recording, feature-binding}
 
 
 \section{Introduction}
-The neural coding problem addresses the question of how information is encoded by patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}. Whilst precise temporal spike patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of spike time variability remains unexplained. Such variability leads to the common assumption of population codes based on spike counts \cite{reyes2015high, lin2015nature} or trial-averaged firing rates \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high}.
+The neural coding problem addresses the question of how information is encoded by patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}. Whilst precise temporal spike patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of spike time variability remains unexplained. Such variability leads to the common assumption of population spike count \cite{reyes2015high, lin2015nature} or trial-averaged firing rate \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high} codes. Previous studies have shown that spike count variability is shared across the population \cite{scholvinck2015cortical, lin2015nature}. As single cortical neurons can generate highly reliable spike trains to direct stimulation in vitro \cite{mainen1995reliability}, in vivo shared variability is likely to arise from variability in synaptic inputs, reflecting cortical network dynamics \cite{carandini2004amplification}. 
+
+In early visual cortex, trial-to-trial spike count variability is correlated across the population and shown to be modulated by two global factors, which fluctuate the level of excitability from trial-to-trial \cite{lin2015nature}. Firstly, an additive factor is explained by the interaction of evoked activity with population-wide spontaneous activity \cite{arieli1996dynamics, scholvinck2015cortical}. A second multiplicative factor also modulates the trial-to-trial fluctuation in excitability across the population, and has been proposed to be caused by top-down modulation... Fluctuations in spontaneous activity have also been shown to gate sensory-evoked responses \cite{luczak2013gating}. 
+
+Fluctuations in trial-to-trial excitability are referred to herein as trial-to-trial fluctuations in continuous cortical state \cite{scholvinck2015cortical}, which may be multi-dimensional and can be separated into short and long-timescale fluctuations. In this paper, long-timescale refer to large changes taking place over multiple trials that are caused by neural adaptation in response to repetitive stimulation or possibly due to changes in the level of anaesthesia. Short-timescale fluctuations refer to random trial-to-trial fluctuations in excitability around the current general level of excitability.
+
+% Other studies have reported only weak spike count correlations in sensory cortices \cite{reyes2015high}.
+
+Rather than spike count noise correlations, this study aims to characterise the nature of trial-to-trial spike time noise correlations as a step towards confirming or rejecting the modulation of spike times by short-timescale fluctuations of a low-dimensional continuous cortical state. This offers a novel prediction of the encoding capacity of state-dependent spike time encoding, which controls for longer timescale changes in excitability such as neural adaptation. 
+Characterising spike timing codes is important to understanding a variety of dynamic and plastic processes, including properties of action potential patterns directly involved in cognition.
+
+
+%  low 2-dimensional continuous latent state .  
+
+% It is possible that spike time variability is caused and modulated across a population by such a low-dimensional continuous latent state. 
+
+
+
+
 % \cite{gerstner1997neural}, which have capacity beyond the original spike count \cite{}. 
 % Continuous firing rates (averaged over time, trial or population ) 
 % These population codes assume that trial-to-trial variability is either independent or correlated across the population \cite{averbeck2006neural, lin2015nature}. 
-In a recent study in early visual cortex, trial-to-trial spike count variability was shown to be correlated across the population and modulated by an underlying low 2-dimensional continuous latent state \cite{lin2015nature}. Other studies have reported only weak spike count correlations in sensory cortices \cite{reyes2015high}. 
-
-It is possible that spike time variability is caused and modulated across a population by such a low-dimensional continuous latent state. This study aims to characterise the nature of trial-to-trial spike time noise correlations as a step towards confirming or rejecting the modulation of spike times by a continuous low-dimensional latent state. This offers a novel prediction of the encoding capacity of state-dependent spike time encoding. These results control for neural adaptation. 
-Characterising spike timing codes is important to understanding a variety of dynamic and plastic processes, including properties of action potential patterns directly involved in cognition.
 
 % Continuous firing rates (averaged over time, trial or population \cite{gerstner1997neural}) have capacity beyond the single trial discrete spike count from which they are calculated, leaving a full understanding of neural coding and variability undetermined. 
 
@@ -504,9 +514,8 @@ The standard deviations of the state-dependent response distributions estimated 
 \end{figure}
 
 
-To remove autocorrelations in cluster unit time series (particularly negative autocorrelations introduced by differencing) and to return the differenced time series to the original scale without division by 2, autoregressive (AR) and/or moving average (MA) models were fit to differenced correlated criteria fulfilling angled clusters, using an automated version of the Box-Jenkins method (Methods \ref{methods:automated_box_jenkins}).
- 
-\ExecuteMetaData[AnalysisOutputLatex.tex]{SelectivelyDifferencedBoxJenkinsDifferencedSummary}
+To remove autocorrelations in cluster unit time series (particularly negative autocorrelations introduced by differencing) and to return the differenced time series to the original scale without rescaling, autoregressive (AR) and/or moving average (MA) models were fit to differenced clusters, using an automated version of the Box-Jenkins method (Methods \ref{methods:automated_box_jenkins}).
+ \ExecuteMetaData[AnalysisOutputLatex.tex]{SelectivelyDifferencedBoxJenkinsDifferencedSummary}
 As expected, the model residuals showed autocorrelations, partial autocorrelations, cross correlations and partial cross correlations at and below chance levels (Supplementary Fig. 11). 
 % Overall\todo{What type of clusters? Check.}, a very low amount of variance was explained by the linear models fit to predict spike pair times from trial number (Fig. 7e). 
 
