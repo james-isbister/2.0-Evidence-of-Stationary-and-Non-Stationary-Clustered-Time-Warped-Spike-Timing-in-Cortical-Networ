@@ -22,9 +22,9 @@
 \usepackage{amsmath}
 \usepackage{bm}
 
-% \usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
 
-\usepackage[nomarkers,notablist,nofiglist]{endfloat}
+% \usepackage[nomarkers,notablist,nofiglist]{endfloat}
 \usepackage[colorinlistoftodos,disable]{todonotes}
 
 
@@ -91,87 +91,70 @@ Patterns of action potentials induced by sensory stimulation in vivo allow inves
 
 \section{Introduction}
 
-The neural coding problem addresses the question of how information is encoded by patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}. Whilst precise temporal spike patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of spike time variability remains unexplained. Such variability leads to the common assumption that the brain uses a population code based on spike counts \cite{reyes2015high, lin2015nature} or trial-averaged firing rates \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high}. Previous studies have shown that spike count variability is shared across the population in early sensory cortices \cite{scholvinck2015cortical, lin2015nature}. As single cortical neurons can generate highly reliable spike trains to direct stimulation in vitro \cite{mainen1995reliability}, shared variability in vivo is likely to arise from variability in synaptic inputs reflecting cortical network dynamics \cite{carandini2004amplification}.
+The neural coding problem addresses the question of how information is encoded by patterns of action potentials in the nervous system \cite{gerstner1997neural, johnson2000neural, stein2005neuronal, gerstner2014neuronal}. Responses following sensory stimulation can be analysed to explore principles of neural coding.
+Whilst precise temporal spike patterns have been observed \cite{uzzell2004precision, johansson2004first, gollisch2008rapid, storchi2012comparison, reinagel2002precise, reyes2014laminar}, a large proportion of spike time variability remains unexplained, leading to the common assumption that the brain uses a population code based on spike counts \cite{reyes2015high, lin2015nature} or trial-averaged firing rates \cite{hong2016explicit, chang2017code, kar2019evidence, stringer2019high}. Characterising spike timing codes is important to understanding a variety of dynamic and plastic processes, including properties of action potential patterns directly involved in cognition.
 
 
-
-
-In early visual cortex, trial-to-trial spike count variability is correlated across the population and is modulated by two global factors, which fluctuate the level of excitability from trial-to-trial \cite{lin2015nature}. The first of these factors is explained by an additive interaction of evoked activity with population-wide spontaneous activity \cite{arieli1996dynamics, scholvinck2015cortical}. The second is a multiplicative factor proposed to be caused by top-down feedback from higher cortices \cite{lin2015nature}. 
-Changes in excitability are herein referred to as changes in a continuous cortical state \cite{scholvinck2015cortical}.
+As single cortical neurons can generate highly reliable spike trains to direct stimulation in vitro \cite{mainen1995reliability}, variability in vivo is likely to reflect 
+% arise from variability in synaptic inputs reflecting 
+cortical network dynamics \cite{carandini2004amplification}. 
+% Previous studies have shown that spike count variability is shared across the population in early sensory cortices . 
+For example, trial-to-trial spike count variability is shared across the population \cite{scholvinck2015cortical, lin2015nature} in early visual cortex.
+Particularly, fluctuations in the level of excitability from trial-to-trial was shown to be modulated by two global factors \cite{lin2015nature}. The first of these factors is explained by an additive interaction of evoked activity with population-wide spontaneous activity \cite{arieli1996dynamics, scholvinck2015cortical}. The second is a multiplicative factor proposed to be caused by top-down feedback from higher cortices \cite{lin2015nature}. 
 
 
 % Fluctuations in spontaneous activity also gate sensory-evoked responses \cite{luczak2013gating}. 
 
- 
 % which may be multi-dimensional. 
-Changes in such cortical state can happen on long or short-timescales, and can be either specific or general across the population (Fig. 0a). In this paper, long-timescale state changes refer to slow changes in neuronal excitability caused by processes such as changes in the level of anaesthesia or neural adaptation \cite{dragoi2002dynamics, ulanovsky2003processing, sharpee2006adaptive}. Such processes are more specific than general across the population. Short-timescale state changes refer to random trial-to-trial fluctuations in excitability around the longer-timescale modulated state. 
-
-
-
-% Other studies have reported only weak spike count correlations in sensory cortices \cite{reyes2015high}.
-
-% Study of the modulation of spike times by short-timescale changes in state are limited. 
-% Towards investigating whether spike times are modulated by short-timescale fluctuations of a low-dimensional cortical state, this study aims to characterise the nature of spike time noise correlations, whilst controlling for long-timescale changes in excitability.
-
-The paper takes a step towards uncovering the dimensionality of possible population-wide short-timescale state changes, by better characterising pairwise spike time noise correlations, whilst controlling for long-timescale state changes.
-% This study aims to characterise the non-trivial nature of trial-to-trial spike time noise correlations, as a component step towards investigating the modulation of spike times by short-timescale fluctuations of a low-dimensional continuous cortical state. 
-% which would introduce the possibility of state-dependent encoding and decoding (see below). 
-% The characterisation controls for longer timescale changes in excitability to estimate how stimulus representations are modulated by trial-to-trial fluctuations in state at a given point in time. 
-This offers a novel prediction of the encoding capacity under a state-dependent coding regime. 
-Characterising spike timing codes is important to understanding a variety of dynamic and plastic processes, including properties of action potential patterns directly involved in cognition. Responses following sensory stimulation can be analysed to explore such principles of neural coding. 
-
-
-%  low 2-dimensional continuous latent state .  
-% It is possible that spike time variability is caused and modulated across a population by such a low-dimensional continuous latent state. 
-
-% \cite{gerstner1997neural}, which have capacity beyond the original spike count \cite{}. 
-% Continuous firing rates (averaged over time, trial or population ) 
-% These population codes assume that trial-to-trial variability is either independent or correlated across the population \cite{averbeck2006neural, lin2015nature}. 
-
-% Continuous firing rates (averaged over time, trial or population \cite{gerstner1997neural}) have capacity beyond the single trial discrete spike count from which they are calculated, leaving a full understanding of neural coding and variability undetermined. 
-
-% , under the premise that variability cancels out across a population \cite{abbott1999effect, moreno2014information, stringer2019high} or that variability is shared across the population and modulated from trial-to-trial by some underlying low-dimensional latent state \cite{lin2015nature}. 
-
-% Characterising responses may also uncover response properties involved in behaviour. 
-
-
-% Due to response variability, characterising the neural representation of a single stimulus is a matter of characterising the \textit{distribution} of possible neural responses for the stimulus. 
-A multi-neuron stimulus response can be expressed as a point in multi-dimensional space, where each dimension represents the value of a spike train metric. Responses to multiple stimulus presentations form a sample stimulus-response distribution in this space. Neural coding classically considers such response-distributions with respect to fixed-state decoders \cite{averbeck2006neural, moreno2014information, stringer2019high}. All samples from the sample stimulus-response distribution are therefore used to estimate an underlying response distribution from which single-trial responses are `drawn' (Fig. 1a).
-
-
-% Information theoretic approaches aim to understand 
-If two sensory stimuli have a cognitively relevant difference, downstream neurons must be able to respond differently to samples from the response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a). `Noise correlations' refer to shared trial-to-trial variability over repeated presentations of single stimuli, whilst `signal correlations' concern tuning similarity between neurons. With respect to fixed-state decoders, noise correlations can either increase or decrease encoding capacity \cite{averbeck2006neural}.
-
-% Estimating the underlying response distribution (including correlative structure) for single stimuli is complicated by neural adaptation and heterogeneity of sample response distribution structure.
-% which approximates an underlying stimulus-response distribution. 
-
-It is important to consider that if downstream neurons are also modulated by the same population-wide short-timescale fluctuating state, then downstream `decoder' neurons could respond in a state-dependent manner.
-When the fluctuating state has a value on a single trial, a response comes from a \textit{state-conditioned} stimulus-response distribution, which would occupy a smaller region of response distribution space than the region sampled over multiple trials (Fig. 1c). State-dependent decoding therefore offers an improved coding capacity.
-% , compared to the classical fixed-state decoder interpretation.
-
-Long-timescale changes in excitability make it difficult to accurately characterise the stimulus response distribution from which samples are drawn at a point in time. 
-% including noise correlation structure caused by short-timescale fluctuations in excitability. 
-Long-timescale changes are also likely to cause correlative structure in the stimulus-response distribution that could be misinterpreted as noise correlations caused by a short-timescale fluctuating state. If the effect of long-timescale changes in excitability can be removed or controlled for, it may be possible to give an estimate of the response distribution on a single trial. This could enable characterisation of noise correlations, which in turn could uncover short-timescale fluctuations in a population-wide state. Removing the effect of long-timescale changes and characterising subsequent adaptation-controlled response distributions, is made difficult by heterogeneity in single unit processes of adaptation and the structure of original sample response distributions. 
-
-
-
-% That is, the response distributions are \textit{non-stationary} and change monotonically as a function of trial index for some neurons. 
-% Processes of adaptation, which we define as different to continuous latent states underlying trial-to-trial noise correlations, could also 
+Changes in excitability are herein referred to as changes in a continuous cortical state \cite{scholvinck2015cortical}.
+Such changes in continuous cortical state can occur on long or short-timescales, and may be specific to neurons or neuron-types or general across the population.
+% , and may occur across the population, or specifically for neurons or neuron-types (Fig. 0a). 
+In this paper, long-timescale state changes refer to slow changes in neuronal excitability caused by processes such as neural adaptation \cite{dragoi2002dynamics, ulanovsky2003processing, sharpee2006adaptive} or changes in the level of anaesthesia. Short-timescale state changes refer to random trial-to-trial fluctuations in excitability around the longer-timescale modulated state. Analysis of neuronal responses over multiple trials may allow inference of a fluctuating shared short-timescale cortical state, with possible implications for neural coding. 
 
 
 
 \begin{figure}[t!]
 \centering
 \includegraphics[width=\textwidth]{Figure1.pdf}
-\caption{Explanatory Figures. 
-(a) Left: For two neurons (x and y-axis), illustration of sample (dots) and boundary of underlying (circle) first spike stimulus-response distributions for two hypothetical stimuli (red and gold). Right: Illustration of corresponding relative first spike differences. 
-(b) Illustration of trial dependence of a sampled response distribution (dots). Circle illustrates the boundary of a possible trial-dependent response distribution on a single trial. 
-(c) Illustration of boundary of state-dependent first spike response distribution for a single state value. The green line shows the mean points that would be predicted for a continuous set of state values.
-(d) Illustration of superposition of two single spike pattern feature representations.
-(e) Illustration of `stationary clustered time-warped precise spike timing'. Left: Responses form several clear clusters. The main green cluster is correlated with non-unitary gradient (i.e. different from $45^{\circ}$). Under the assumption of stationarity, the green line and circle are the same as in (c). The orange ellipses illustrate the boundary of an underlying response distribution under the assumption of independence and normality for the sample (solid) and another stimulus (dashed). Centre: Illustration of spike time differences for values of the state. The green circle illustrates the boundary of a state-dependent distribution of spike time differences. Right: Conceptual illustration of time warp relative differences.}
+\caption{Adaptation-independent noise correlations, underlying state, response distributions. (a) Left: Blue lines show the average response of two neurons in response to multiple presentation of a single stimulus. Neuron 1 shows a consistent average response, whilst the responses of neuron 2 decrease over presentations, demonstrating a long-timescale response change. Pink points show the actual responses of each neuron on each trial. Centre: Plots the  By removing the long-timescale adaptative trend for neuron 2, it is poss} 
+
+
+% (a) Left: For two neurons (x and y-axis), illustration of sample (dots) and boundary of underlying (circle) first spike stimulus-response distributions for two hypothetical stimuli (red and gold). Right: Illustration of corresponding relative first spike differences. 
+% (b) Illustration of trial dependence of a sampled response distribution (dots). Circle illustrates the boundary of a possible trial-dependent response distribution on a single trial. 
+% (c) Illustration of boundary of state-dependent first spike response distribution for a single state value. The green line shows the mean points that would be predicted for a continuous set of state values.
+% (d) Illustration of superposition of two single spike pattern feature representations.
+% (e) Illustration of `stationary clustered time-warped precise spike timing'. Left: Responses form several clear clusters. The main green cluster is correlated with non-unitary gradient (i.e. different from $45^{\circ}$). Under the assumption of stationarity, the green line and circle are the same as in (c). The orange ellipses illustrate the boundary of an underlying response distribution under the assumption of independence and normality for the sample (solid) and another stimulus (dashed). Centre: Illustration of spike time differences for values of the state. The green circle illustrates the boundary of a state-dependent distribution of spike time differences. Right: Conceptual illustration of time warp relative differences.}
 \label{fig:fig1}
 \end{figure}
 
+
+
+
+
+A multi-neuron stimulus response can be expressed as a point in multi-dimensional space, where each dimension represents the value of a spike train metric. Responses to multiple stimulus presentations form a sample stimulus-response distribution in this space. Neural coding classically considers such response-distributions with respect to fixed-state decoders \cite{averbeck2006neural, moreno2014information, stringer2019high}. The sample stimulus-response distribution is therefore used to estimate an underlying response distribution from which single-trial responses are `drawn' (Fig. 1a).
+
+
+% Information theoretic approaches aim to understand 
+If two sensory stimuli have a cognitively relevant difference, downstream neurons must be able to respond differently to samples from the response distribution of either stimulus. This is possible if the response distributions are highly non-overlapping in dimensions that downstream neurons are sensitive to, such as relative spike time differences (\cite{gasparini2006state, branco2010dendritic, branco2011synaptic}; Fig. 1a). For a single stimulus, trial-to-trial variability shared between multiple neurons (i.e. `noise correlations') corresponds with correlative structure in the stimulus response distribution\footnote{Noise correlations differ to `signal correlations', which refer to tuning similarity between neurons.}. With respect to fixed-state decoders, noise correlations can either increase or decrease encoding capacity \cite{averbeck2006neural}.
+
+
+
+
+% Estimating the underlying response distribution (including correlative structure) for single stimuli is complicated by neural adaptation and heterogeneity of sample response distribution structure.
+% which approximates an underlying stimulus-response distribution. 
+
+However, short-timescale noise correlations are suggestive of a short-timescale fluctuating state, which covaries neuronal responses and would thus explain a proportion of neural variability. If downstream neurons were also modulated by the same population-wide short-timescale fluctuating state, then downstream `decoder' neurons could respond in a state-dependent manner.
+When the fluctuating state has a value on a single trial, a response comes from a \textit{state-conditioned} stimulus-response distribution, which would occupy a smaller region of response distribution space than the region sampled over multiple trials (Fig. 1c). State-dependent decoding therefore offers an improved coding capacity.
+
+This paper aims to precisely characterise shared short-timescale trial-to-trial spike-timing response variability as a step towards inferring the dimensionality of shared short-timescale trial-to-trial state fluctuations (Fig. 1a). This is complicated by changes to neural responses caused by longer-timescale processes, which are therefore controlled for in this paper. This offers a novel prediction of the encoding capacity under a state-dependent coding regime.
+
+
+% Long-timescale changes are also likely to cause correlative structure in the stimulus-response distribution that could be misinterpreted as noise correlations caused by a short-timescale fluctuating state. If the effect of long-timescale changes in excitability can be removed or controlled for, it may be possible to give an estimate of the response distribution on a single trial. This could enable characterisation of noise correlations, which in turn could uncover short-timescale fluctuations in a population-wide state. Removing the effect of long-timescale changes and characterising subsequent adaptation-controlled response distributions, is made difficult by heterogeneity in single unit processes of adaptation and the structure of original sample response distributions. 
+
+
+
+% That is, the response distributions are \textit{non-stationary} and change monotonically as a function of trial index for some neurons. 
+% Processes of adaptation, which we define as different to continuous latent states underlying trial-to-trial noise correlations, could also 
 
 
 
@@ -228,6 +211,52 @@ The total number of low-dimensional states underlying the correlative structure 
 The findings differ from previous `time-warp' studies, which aim to align spike trains over trials and do not simultaneously consider potential encoding capacity, clustering, adaptation and different warping functions for different neurons \cite{williams2020discovering}. 
 
 This characterisation is useful to the fixed-state decoder interpretation. More interestingly, these noise correlations open the possibility of state-dependent spike-time coding. Noise correlations were found for pairs of neurons separated over multiple barrels and cortical layers, giving evidence of a spatially distanced short-timescale fluctuating state, which could also cause downstream neurons to respond in a state-dependent manner. Analysis estimated state-dependent relative first spike difference response distributions for each adaptation-controlled correlated cluster, giving a prediction of the capacity of state-dependent encoding (based on distribution size), which surpasses previously proposed coding forms. 
+
+
+
+% Other studies have reported only weak spike count correlations in sensory cortices \cite{reyes2015high}.
+
+% Study of the modulation of spike times by short-timescale changes in state are limited. 
+% Towards investigating whether spike times are modulated by short-timescale fluctuations of a low-dimensional cortical state, this study aims to characterise the nature of spike time noise correlations, whilst controlling for long-timescale changes in excitability.
+
+
+
+
+
+
+
+
+% The paper takes a step towards uncovering the dimensionality of possible population-wide short-timescale state changes, by better characterising pairwise spike time noise correlations, whilst controlling for long-timescale state changes.
+ 
+
+
+
+
+% This study aims to characterise the non-trivial nature of trial-to-trial spike time noise correlations, as a component step towards investigating the modulation of spike times by short-timescale fluctuations of a low-dimensional continuous cortical state. 
+% which would introduce the possibility of state-dependent encoding and decoding (see below). 
+% The characterisation controls for longer timescale changes in excitability to estimate how stimulus representations are modulated by trial-to-trial fluctuations in state at a given point in time. 
+
+
+
+
+%  low 2-dimensional continuous latent state .  
+% It is possible that spike time variability is caused and modulated across a population by such a low-dimensional continuous latent state. 
+
+% \cite{gerstner1997neural}, which have capacity beyond the original spike count \cite{}. 
+% Continuous firing rates (averaged over time, trial or population ) 
+% These population codes assume that trial-to-trial variability is either independent or correlated across the population \cite{averbeck2006neural, lin2015nature}. 
+
+% Continuous firing rates (averaged over time, trial or population \cite{gerstner1997neural}) have capacity beyond the single trial discrete spike count from which they are calculated, leaving a full understanding of neural coding and variability undetermined. 
+
+% , under the premise that variability cancels out across a population \cite{abbott1999effect, moreno2014information, stringer2019high} or that variability is shared across the population and modulated from trial-to-trial by some underlying low-dimensional latent state \cite{lin2015nature}. 
+
+% Characterising responses may also uncover response properties involved in behaviour. 
+
+
+% Due to response variability, characterising the neural representation of a single stimulus is a matter of characterising the \textit{distribution} of possible neural responses for the stimulus. 
+
+
+
 
 % Whilst stimulus-dependency of noise correlations is not investigated in this study, estimates of potential encoding capacity are made by analysis of state-dependent response distribution size. 
 
